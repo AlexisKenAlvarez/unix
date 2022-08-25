@@ -1,0 +1,715 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+$poppins: 'Poppins', sans-serif;
+$blue: #79C7D1;
+$grey: #DADADA;
+$darkgrey: #626A79;
+
+.hero-wrapper {
+    height: auto;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    margin-top: 8.5rem;
+    font-family: $poppins;
+    overflow-y: hidden;
+
+    .hero-container {
+        max-width: 1400px;
+        height: 100%;
+        margin: 0 auto;
+
+        .categ {
+            color: $darkgrey;
+            margin-left: 3rem;
+            font-weight: 500;
+            position: relative;
+            cursor: pointer;
+            width: 7rem;
+        }
+
+        .carousel-outside {
+            height: auto;
+            width: 90%;
+            position: relative;
+            margin: 0 auto;
+            margin-top: 2rem;
+    
+            
+    
+            .carousel-wrapper {
+                width: 100%;
+                height: 66vh;
+                margin: 0 auto;
+                overflow-x: hidden;
+                position: relative;
+
+                .carousel-mover {
+                    width: 200%;
+                    height: 100%;
+                    display: flex;
+                    transition: 0.5s all ease-in-out;
+                       
+                    .hero-container {
+                        height: 100%;
+                        width: 50%;
+                        background-color: #EF738B;
+                        scroll-snap-align: start;
+                        position: relative;
+        
+                        .hero-headings {
+                            color: white;
+                            font-family: $poppins;
+                            margin-left: 1rem;
+                            position: relative;
+                            z-index: 2;
+        
+                            .coolest {
+                                font-weight: 500;
+    
+                            }
+        
+                            .off {
+                                font-weight: 700;
+                                margin-top: -1.4rem;
+                            }
+        
+                            .hero-button {
+                                width: 6rem;
+                                height: 2rem;
+                                background-color: #F4D59B;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                color: $darkgrey;
+                                margin-top: -1rem;
+                                position: relative;
+                                border-radius: 10px;
+                                cursor: pointer;
+                            }
+        
+                        }
+        
+                        .hero-image {
+                            width: 70vw;
+                            margin-bottom: 0;
+                            display: block;
+                            margin: 0 auto;
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            z-index: 1;
+                        }   
+                    }
+        
+                    .page2-container {
+                        width: 50%;
+                        height: 100%;
+                        background-color: #37B1E5;
+                        position: relative;
+    
+                        .page2-headings {
+                            color: white;
+                            font-family: $poppins;
+                            margin-left: 1rem;
+                            position: relative;
+                            z-index: 2;
+    
+                            .unique {
+                                font-weight: 500;
+                            }
+        
+                            .affordable {
+                                margin-top: -1.3rem;
+                            }
+    
+                            .page2-button {
+                                width: 6rem;
+                                height: 2rem;
+                                background-color: #BDE44B;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                color: $darkgrey;
+                                margin-top: -1rem;
+                                position: relative;
+                                border-radius: 10px;
+                                cursor: pointer;
+                            }
+                        }
+    
+                        .page2-image {
+                            width: 16rem;
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            margin: auto;
+                        }
+    
+                        
+                    } 
+    
+                    @media screen and (min-width: 486px) {
+                        .hero-container {
+                            .hero-headings {
+                                margin: 2.5rem;
+                            }
+                            .hero-image {
+                                width: 21rem;
+                                margin: 0;
+                                right: 1rem;
+                                left: auto;
+                            }
+                        }
+    
+                        .page2-container {
+                            .page2-headings {
+                                margin: 2.5rem;
+                            }
+                            .page2-image {
+                                width: 21rem;
+                                margin: 0;
+                                right: 1rem;
+                                left: auto;
+                            }
+                        }
+                    }
+    
+                    @media screen and (min-width: 673px) {
+                        .hero-container {
+                            .hero-headings {
+                                margin-top: 4rem;
+                            }
+                            .hero-image {
+                                width: 21rem;
+                                margin: 0;
+                                right: 1rem;
+                                left: auto;
+                            }
+                        }
+    
+                        .page2-container {
+                            .page2-headings {
+                                margin-top: 4rem;
+                            }
+                            .page2-image {
+                                width: 21rem;
+                                margin: 0;
+                                right: 1rem;
+                                left: auto;
+                            }
+                        }
+                    }
+    
+                    @media screen and (min-width: 775px) {
+                        .hero-container {
+                            .hero-headings {
+                                margin: 2.5rem;
+                            }
+                            .hero-image {
+                                width: 60vh;
+                                margin: 0;
+                                right: 1rem;
+                                left: auto;
+                            }
+                        }
+    
+                        .page2-container {
+                            .page2-headings {
+                                margin: 2.5rem;
+                            }
+                            .page2-image {
+                                width: 60vh;
+                                margin: 0;
+                                right: 1rem;
+                                left: auto;
+                            }
+                        }
+                    }
+    
+                    @media screen and (min-width: 875px) {
+                        .hero-container {
+                            .hero-headings {
+                                margin-top: 15vh;
+                                margin-left: 10%;
+    
+                                .coolest {
+                                    width: 23rem;
+                                    font-size: 2rem;
+                                }
+    
+                                .off {
+                                    font-size: 3rem;
+                                }
+    
+                                .hero-button {
+                                    width: 8rem;
+                                    height: 3rem;
+                                }
+    
+    
+                            }
+                            .hero-image {
+                                width: 40%;
+                                margin: 0;
+                                right: 4rem;
+                                left: auto;
+                            }
+                        }
+    
+                        .page2-container {
+                            .page2-headings {
+                                margin-top: 15vh;
+                                margin-left: 10%;
+    
+                                .unique {
+                                    width: 23rem;
+                                    font-size: 2rem;
+                                }
+    
+                                .affordable {
+                                    font-size: 3rem;
+                                }
+    
+                                .page2-button {
+                                    width: 8rem;
+                                    height: 3rem;
+                                }
+    
+    
+                            }
+                            .page2-image {
+                                width: 40%;
+                                margin: 0;
+                                right: 4rem;
+                                left: auto;
+                            }
+                        }
+                    }
+    
+                    @media screen and (min-width: 1276px) {
+                        .hero-container {
+                            .hero-headings {
+                                margin-top: 6rem;
+                                margin-left: 10rem;
+    
+                                .coolest {
+                                    width: 23rem;
+                                    font-size: 2rem;
+                                }
+    
+                                .off {
+                                    font-size: 3rem;
+                                    margin-top: -2rem;
+                                    font-weight: 800;
+                                }
+    
+                                .hero-button {
+                                    width: 8rem;
+                                    height: 3rem;
+                                    font-weight: 600;
+                                }
+    
+    
+                            }
+                            .hero-image {
+                                width: 35%;
+                                margin: 0;
+                                right: 8rem;
+                                left: auto;
+                            }
+                        }
+
+                        .page2-container {
+                            .page2-headings {
+                                margin-top: 6rem;
+                                margin-left: 10rem;
+        
+                                .unique {
+                                    width: 23rem;
+                                    font-size: 2rem;
+                                }
+        
+                                .affordable {
+                                    font-size: 3rem;
+                                    margin-top: -2rem;
+                                    font-weight: 800;
+                                }
+        
+                                .page2-button {
+                                    width: 8rem;
+                                    height: 3rem;
+                                    font-weight: 600;
+                                }
+        
+        
+                            }
+                            .page2-image {
+                                width: 35%;
+                                margin: 0;
+                                right: 8rem;
+                                left: auto;
+                            }
+                    }
+    
+
+                    
+                    }
+                }
+    
+                @media screen and (min-width: 1276px) {
+                    height: 25rem;
+                }
+
+                @media screen and (min-width: 1276px) and (max-height: 673px) {
+                    height: 60vh;
+                }
+     
+            }
+    
+            .arrow {
+                background-color: rgba(255, 255, 255, 0.5);
+                height: 2rem;
+                width: 2rem;
+                position: absolute;
+                top: 45%;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 1rem;
+                cursor: pointer;
+                transition: 0.2s all ease-in-out;
+                z-index: 10;
+            }
+    
+            .arrow-left {
+                transform: translateY(50%);
+                background-image: url('../images/arrow-left.svg');
+    
+            }
+    
+            .arrow-right{
+                right: 0;
+                transform: translateY(50%);
+                background-image: url('../images/arrow-right.svg');
+    
+    
+            }
+    
+            @media screen and (min-width: 1276px) {
+                .arrow {
+                    height: 100%;
+                    top: 0;
+                    transform: translateY(0%) !important;
+                }
+    
+            }
+    
+            .dots-container {
+                width: 4rem;
+                height: 0.5rem;
+                position: absolute;
+                bottom: 0.6rem;
+                left: 0;
+                right: 0;
+                margin: auto;
+                z-index: 3;
+                display: flex;
+                justify-content: space-between;
+    
+                .dots {
+                    width: 1.5rem;
+                    height: 0.5rem;
+                    border-radius: 5px;
+                }
+            }
+        }
+
+        .deals-container {
+            width: 90%;
+            margin: 0 auto;
+            margin-top: 2rem;
+            height: 60rem;
+            display: grid;
+            grid-template-rows: repeat(3, minmax(10.5rem, 35vw));
+            row-gap: 1.7rem;
+
+            .deals {
+                color: white;
+                font-weight: 500;
+                overflow: hidden;
+                position: relative;
+
+                .deal-image {
+                    position: absolute;
+                    width: 11rem;
+                    right: 2rem;
+                    bottom: 0;
+                }
+
+
+                .tags {
+                    width: 8rem;
+                    height: 2rem;
+                    display: flex;
+                    align-items: center;
+                    padding-left: 1rem;
+                    margin: 1rem;
+                    margin-top: 4.5%;
+                    margin-left: 4.5%;
+                    position: relative;
+                    clip-path: polygon(100% 0%,80% 51%,100% 100%,0% 100%,0% 50%,0% 1%);
+                }
+
+                .under {
+                    font-weight: 300;
+                    margin-left: 1rem;
+                    margin-top: -0.7rem;
+                    margin-left: 4.5%;
+                    
+                }
+
+                .deal-price {
+                    margin-left: 1rem;
+                    margin-top: -1.3rem;
+                    font-size: 2.2rem;
+                    margin-left: 4.5%;
+                }
+
+                .shopnow {
+                    margin-top: -1.7rem;
+                    margin-left: 1rem;
+                    font-weight: 300;
+                    text-transform: capitalize;
+                    position: relative;
+                    width: 6rem;
+                    margin-left: 4.5%;
+                }
+                
+                .tag1 {
+                    background-color: #E58A80;
+                }
+
+                .tag2 {
+                    background-color: #82BAE3;
+                }
+
+                .tag3 {
+                    background-color: #D7B68E;
+                }
+                @media screen and (min-width: 600px) {
+                    .deal-image {
+                        width: 14rem;
+                        right: 4rem;
+
+                        @media screen and (min-width: 700px) {
+                            width: 15.5rem;
+                        }
+                    }
+    
+                    .under {
+                        margin-left: 1rem;
+                        margin-top: -0rem;
+                        margin-left: 4.5%;
+                        font-size: 1.2rem;
+                        
+                    }
+    
+                    .deal-price {
+                        margin-top: -1.6rem;
+                        font-size: 2.5rem;
+                    }
+    
+                    .shopnow {
+                        margin-top: -0.8rem;
+                        margin-left: 1rem;
+                        font-weight: 300;
+                        text-transform: capitalize;
+                        position: relative;
+                        width: 6rem;
+                        margin-left: 4.5%;
+                        font-size: 1.1rem;
+                    }
+                }
+            }
+
+            .deal1 {
+                background-color: #80241A;
+            }
+
+            .deal2 {
+                background-color: #216496;
+            }
+
+            .deal3 {
+                background-image: url('../images/shirts.png');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            @media screen and (min-width: 762px) {
+                grid-template-rows: 9rem;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-gap: 1rem;
+
+                .deals {
+                    .deal-image {
+                        width: 9rem;
+                        right: 0.5rem;
+                    }
+
+                    .tags {
+                        width: 6rem;
+                        height: 1.5rem;
+                        padding-left: 0.6rem;
+                        font-size: 0.7rem;
+                    }
+
+                    .under {
+                        font-size: 1rem;
+                        margin-top: -0.7rem;
+                    }
+
+                    .deal-price {
+                        z-index: 6;
+                        margin-top: -1.3rem;
+                        font-size: 1.7rem;
+                        position: relative;
+                    }
+
+                    .shopnow {
+                        font-size: 0.9rem;
+                    }
+                }
+            }
+
+            @media screen and (min-width: 1110px) {
+                grid-template-rows: 14vw;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-gap: 1rem;
+
+                .deals {
+                    .deal-image {
+                        width: 11rem;
+                        right: 0.5rem;
+                    } 
+                }
+            }
+
+            @media screen and (min-width: 1386px) {
+                .deals {
+                    .deal-image {
+                        width: 12rem;
+                        right: 2rem;
+                    } 
+
+                    .deal1-image {
+                        width: 13rem;
+                    }
+
+                    .tags {
+                        width: 7rem;
+                        height: 2.4rem;
+                        font-size: 0.9rem;
+                    }
+
+                    .under {
+                        font-size: 1.2em;
+                        margin-top: -0.2rem;
+                    }
+
+                    .deal-price {
+                        margin-top: -1.3rem;
+                        font-size: 2.1rem;
+                    }
+                }
+            }
+
+            @media screen and (min-width: 1500px) {
+                grid-template-rows: 13rem;
+            }
+
+           
+        }
+    }
+}
+
+.shopnow:after {
+    content: url('../images/shopnow-arrow.svg');
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 1px;
+
+    @media screen and (min-width: 600px) {
+        right: -6px;
+    }
+
+    @media screen and (min-width: 762px) {
+        right: 10px;
+    }
+}   
+
+
+
+.arrow:hover {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+
+.hero-button:after {
+    content: url('../images/arrow-explore.svg');
+    display: block;
+    position: absolute;
+    right: -21.6px;
+    top: 2.5px;
+    transform: scale(0.8);
+}
+
+.page2-button:after {
+    content: url('../images/page2-explore.svg');
+    display: block;
+    position: absolute;
+    right: -21.6px;
+    top: 2.5px;
+    transform: scale(0.8);
+}
+
+@media screen and (min-width: 875px) {
+    .hero-button:after {
+        right: -22.6px;
+        top: 11px;
+        transform: scale(1);
+    }
+
+    .page2-button:after {
+        right: -22.6px;
+        top: 11px;
+        transform: scale(1);
+    }
+}
+
+
+
+
+
+.categ:before {
+    content: url('../images/category-svgrepo-com.svg');
+    display: block;
+    filter: invert(43%) sepia(8%) saturate(870%) hue-rotate(181deg) brightness(90%) contrast(85%);
+    position: absolute;
+    left: -1.6rem;
+    transform: scale(0.7);
+    top: -0.7px;
+}
+
+.categ:after {
+    content: url('../images/down-arrow.svg');
+    display: block;
+    right: -5px;
+    top: -3px;
+    position: absolute;
+}

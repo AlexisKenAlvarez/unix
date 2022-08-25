@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+$poppins: 'Poppins', sans-serif;
+$blue: #79C7D1;
+$grey: #DADADA;
+
+body, html {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.main-div {
+    overflow: hidden;
+}
+
+.nav-wrapper {
+    width: 100%;
+    height: 8.5rem;
+    position: fixed;
+    z-index: 1000;
+    background-color: white;
+    
+
+    .line {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: $grey;
+        height: 1.5px;
+        
+    }
+
+    .nav-container {
+        margin: 0 auto;
+        max-width: 1400px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr 3rem;
+        justify-content: space-between;
+        flex-direction: column;
+        padding: 1rem;
+        grid-template-areas: 
+        "logo burger"
+        "search search";
+
+        .logo {
+            width: 7rem;
+            grid-area: logo;
+            cursor: pointer;
+        }
+
+        .burger {
+            grid-area: burger;
+            transform: scale(0.8);
+            justify-self: flex-end;
+            cursor: pointer;
+        }
+
+        .cart {
+            display: none;
+        }
+
+        .nav-ul {
+            display: none;
+        }
+
+        .right-nav {
+            grid-area: search;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            
+            .myform {
+                width: 21rem;
+                margin-top: 1.5rem;
+                height: 2rem;
+                display: flex;
+                grid-area: 2/1 span 1/ span 2;
+                
+                .search-input {
+                    border: 0px;
+                    outline: none;
+                    background-color: #F6F6F6;
+                    padding-left: 1rem;
+                    width: 17.5rem;
+                    font-family: $poppins;
+
+                }
+                .search-button-div {
+                    background-color: $blue;
+                    width: 3rem;
+                    height: 2rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    
+                }
+            }
+
+        }
+
+        @media screen and (min-width: 580px) {
+            grid-template-rows: 1fr;
+            grid-template-columns: 1fr 1fr 5rem;
+            grid-template-areas: 
+            "logo search burger";
+
+            .right-nav{
+                .myform {
+                    margin-top: 0rem;
+                }
+            }
+
+        }
+
+        @media screen and (min-width: 700px) {
+            padding: 1rem;
+            padding-top: 0.5rem;
+            grid-template-rows: 1rem 1fr;
+            grid-template-columns: 1fr 1fr 5rem;
+            grid-template-areas: 
+            "navtop navtop navtop"
+            "logo search burger";
+
+            .logo {
+                margin-top: 1.5rem;
+                margin-left: 1rem;
+            }
+
+            @media screen and (min-width: 866px) {
+                grid-template-columns: 1fr 27rem 5rem;
+
+                .logo {
+                    width: 10rem;
+                    margin-top: 0.5rem;
+                }
+
+                .right-nav {
+                    .myform {
+                        width: 26rem;
+                        .search-input {
+                            width: 22rem ;
+                        }
+                    }
+                }
+            }
+
+
+
+            .right-nav {
+                margin-top: 1.6rem;
+            }
+
+            .burger {
+                display: none;
+            }
+
+            .cart {
+                justify-self: flex-end;
+                width: 2.3rem;
+                height: 2.3rem;
+                margin: 0.3rem;
+                margin-top: 1.35rem;
+                background-color: $blue;
+                border-radius: 100%;
+                display: block;
+                grid-area: burger;
+                background-image: url('./images/shopping-cart-svgrepo-com.svg');
+                background-size: 1.2rem;
+                background-repeat: no-repeat;
+                background-position: 8px 11px;
+                cursor: pointer;
+            }
+
+            .nav-ul {
+                grid-area: navtop;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width:17rem;
+            font-size: 0.9rem;
+                text-decoration: none;
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                justify-self: flex-end;
+                font-family: $poppins;
+                margin-right: 0.4rem;
+                margin-top: 0.3rem;
+                color: #626A79;
+
+                .login {
+                    color: $blue;
+                    font-weight: 600;
+                }
+
+                & > li {
+                    cursor: pointer;
+                }
+            }
+        }
+
+    
+    }
+
+}
+
+
