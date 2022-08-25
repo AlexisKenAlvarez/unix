@@ -366,6 +366,28 @@ $darkgrey: #626A79;
 
                 @media screen and (min-width: 1276px) and (max-height: 673px) {
                     height: 60vh;
+                    .carousel-mover {
+                        .hero-container {
+                            .hero-headings {
+                                margin-top: 10vh;
+                            }
+
+                            .hero-image {
+                                width: 30%;
+                            }
+                        }
+
+                        .page2-container {
+                            .page2-headings {
+                                margin-top: 10vh;
+                            }
+
+                            .page2-image {
+                                width: 30%;
+                            }
+                        }
+                    }
+
                 }
      
             }
