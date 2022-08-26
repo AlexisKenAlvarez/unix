@@ -76,7 +76,7 @@ const Hero = () => {
 
                     <section className='deals-container'>
                         <div className='deal1 deals'>
-                            <img src={deal1} className="deal1-image deal-image"></img>
+                            <img src={deal2} className="deal1-image deal-image"></img>
                             <div className='tag1 tags'>
                                 HOT DEALS
                             </div>
@@ -87,7 +87,7 @@ const Hero = () => {
                             
                         </div>
                         <div className='deal2 deals'>
-                            <img src={deal2} className="deal2-image deal-image"></img>
+                            <img src={deal1} className="deal2-image deal-image"></img>
                             <div className='tag2 tags'>
                                 HOT DEALS
                             </div>

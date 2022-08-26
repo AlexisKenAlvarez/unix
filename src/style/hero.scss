@@ -466,9 +466,13 @@ $darkgrey: #626A79;
 
                 .deal-image {
                     position: absolute;
-                    width: 11rem;
+                    width: 10rem;
                     right: 2rem;
                     bottom: 0;
+                }
+
+                .deal2-image {
+                    width: 11rem;
                 }
 
 
@@ -508,6 +512,7 @@ $darkgrey: #626A79;
                     position: relative;
                     width: 6rem;
                     margin-left: 4.5%;
+                    cursor: pointer;
                 }
                 
                 .tag1 {
@@ -628,7 +633,7 @@ $darkgrey: #626A79;
                         right: 2rem;
                     } 
 
-                    .deal1-image {
+                    .deal2-image {
                         width: 13rem;
                     }
 
