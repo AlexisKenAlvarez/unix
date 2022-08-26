@@ -126,6 +126,90 @@ const Hero = () => {
                         </div>
 
                     </section>
+
+                    {/* ARRIVAL ITEMS CONTAINER */}
+                    <section className='arrival'>
+                        <p className='new'>NEW ARRIVALS</p>
+                        <div className='arrival-line'></div>
+                        <div className='arrival-items-container'>
+
+                            {/* ARRIVAL ITEMS */}
+                            <div className='arrival-items-mover'>
+                                <div className='arrival-items'>
+                                    <div className='arr-image-outside'>
+                                        <div className='arrival-image ar-im1'></div>
+                                    </div>
+                                    
+                                    <p className='arrival-name'>LUXURY PAPER BAG</p>
+                                    <div className='arrival-price-container'>
+                                        <p className='ar-strike'>₱10.00</p>
+                                        <p className='ar-price'>₱9.99</p>
+                                    </div>
+                                </div>
+
+                                <div className='arrival-items'>
+                                    <div className='arr-image-outside'>
+                                        <div className='arrival-image ar-im2'></div>
+                                    </div>
+                                    
+                                    <p className='arrival-name'>UNIX SPECIAL PARCEL</p>
+                                    <div className='arrival-price-container'>
+                                        <p className='ar-strike'>₱5.00</p>
+                                        <p className='ar-price'>₱3.00</p>
+                                    </div>
+                                </div>
+
+                                <div className='arrival-items'>
+                                    <div className='arr-image-outside'>
+                                        <div className='arrival-image ar-im3'></div>
+                                    </div>
+                                    
+                                    <p className='arrival-name'>UNIX DURABLE MUG</p>
+                                    <div className='arrival-price-container'>
+                                        <p className='ar-strike'>₱15.00</p>
+                                        <p className='ar-price'>₱10.00</p>
+                                    </div>
+                                </div>
+
+                                <div className='arrival-items'>
+                                    <div className='arr-image-outside'>
+                                        <div className='arrival-image ar-im4'></div>
+                                    </div>
+                                    
+                                    <p className='arrival-name'>UNIX TOTE BAG</p>
+                                    <div className='arrival-price-container'>
+                                        <p className='ar-strike'>₱35.00</p>
+                                        <p className='ar-price'>₱25.00</p>
+                                    </div>
+                                </div>
+
+                                <div className='arrival-items'>
+                                    <div className='arr-image-outside'>
+                                        <div className='arrival-image ar-im5'></div>
+                                    </div>
+                                    
+                                    <p className='arrival-name'>UNIX PERFUME BOX</p>
+                                    <div className='arrival-price-container'>
+                                        <p className='ar-strike'>₱20.00</p>
+                                        <p className='ar-price'>P15.00</p>
+                                    </div>
+                                </div>
+
+                                <div className='arrival-items'>
+                                    <div className='arr-image-outside'>
+                                        <div className='arrival-image ar-im6'></div>
+                                    </div>
+                                    
+                                    <p className='arrival-name'>UNIX PHONE CASE</p>
+                                    <div className='arrival-price-container'>
+                                        <p className='ar-strike'>₱50.00</p>
+                                        <p className='ar-price'>₱40.00</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
                 </div>
             </div>
         </>

@@ -141,7 +141,7 @@ $darkgrey: #626A79;
                         }
     
                         .page2-image {
-                            width: 16rem;
+                            width: 70vw;
                             position: absolute;
                             bottom: 0;
                             left: 0;
@@ -190,7 +190,7 @@ $darkgrey: #626A79;
                         }
     
                         .page3-image {
-                            width: 16rem;
+                            width: 70vw;
                             position: absolute;
                             bottom: 0;
                             left: 0;
@@ -243,6 +243,29 @@ $darkgrey: #626A79;
                         .hero-container {
                             .hero-headings {
                                 margin-top: 4rem;
+
+                                .coolest {
+                                    font-weight: 400;
+                                    font-size: 2rem;
+                                    margin-left: 1.5rem;
+        
+                                }
+            
+                                .off {
+                                    font-weight: 800;
+                                    font-size: 3rem;
+                                    margin-top: -2rem;
+                                    margin-left: 1.5rem;
+                                }
+
+                                .hero-button {
+                                    width: 6rem;
+                                    height: 2rem;             
+                                    margin-top: -2rem;
+                                    font-size: 0.8rem;
+                                    margin-left: 1.5rem;
+                                }
+            
                             }
                             .hero-image {
                                 width: 21rem;
@@ -254,7 +277,30 @@ $darkgrey: #626A79;
     
                         .page2-container {
                             .page2-headings {
-                                margin-top: 4rem;
+                                margin-top: 5rem;
+
+                                .unique {
+                                    font-weight: 400;
+                                    font-size: 2rem;
+                                    margin-left: 1.5rem;
+                                    width: 17rem;
+        
+                                }
+            
+                                .affordable {
+                                    font-weight: 800;
+                                    font-size: 3rem;
+                                    margin-top: -2.5rem;
+                                    margin-left: 1.5rem;
+                                }
+
+                                .page2-button {
+                                    width: 6rem;
+                                    height: 2rem;             
+                                    margin-top: -2rem;
+                                    font-size: 0.8rem;
+                                    margin-left: 1.5rem;
+                                }
                             }
                             .page2-image {
                                 width: 21rem;
@@ -266,7 +312,29 @@ $darkgrey: #626A79;
 
                         .page3-container {
                             .page3-headings {
-                                margin-top: 4rem;
+                                margin-top: 3rem;
+
+                                .quality {
+                                    font-weight: 400;
+                                    font-size: 2rem;
+                                    margin-left: 1.2rem;
+        
+                                }
+            
+                                .ordernow {
+                                    font-weight: 800;
+                                    font-size: 3rem;
+                                    margin-top: -2.4rem;
+                                    margin-left: 1.2rem;
+                                }
+
+                                .page3-button {
+                                    width: 6rem;
+                                    height: 2rem;             
+                                    margin-top: -2rem;
+                                    font-size: 0.8rem;
+                                    margin-left: 1.2rem;
+                                }
                             }
                             .page3-image {
                                 width: 21rem;
@@ -333,6 +401,7 @@ $darkgrey: #626A79;
                                 .hero-button {
                                     width: 8rem;
                                     height: 3rem;
+                                    font-size: 1rem;
                                 }
     
     
@@ -362,6 +431,7 @@ $darkgrey: #626A79;
                                 .page2-button {
                                     width: 8rem;
                                     height: 3rem;
+                                    font-size: 1rem;
                                 }
     
     
@@ -391,6 +461,7 @@ $darkgrey: #626A79;
                                 .page3-button {
                                     width: 8rem;
                                     height: 3rem;
+                                    font-size: 1rem;
                                 }
     
     
@@ -407,17 +478,17 @@ $darkgrey: #626A79;
                     @media screen and (min-width: 1276px) {
                         .hero-container {
                             .hero-headings {
-                                margin-top: 6rem;
+                                margin-top: 3.8rem;
                                 margin-left: 10rem;
     
                                 .coolest {
                                     width: 23rem;
-                                    font-size: 2rem;
+                                    font-size: 2.3rem;
                                 }
     
                                 .off {
-                                    font-size: 3rem;
-                                    margin-top: -2rem;
+                                    font-size: 3.5rem;
+                                    margin-top: -2.5rem;
                                     font-weight: 800;
                                 }
     
@@ -425,6 +496,7 @@ $darkgrey: #626A79;
                                     width: 8rem;
                                     height: 3rem;
                                     font-weight: 600;
+                                    margin-top: 0.5rem;
                                 }
     
     
@@ -439,24 +511,25 @@ $darkgrey: #626A79;
 
                         .page2-container {
                             .page2-headings {
-                                margin-top: 6rem;
+                                margin-top: 3.8rem;
                                 margin-left: 10rem;
         
                                 .unique {
                                     width: 23rem;
-                                    font-size: 2rem;
+                                    font-size: 2.3rem;
                                 }
-        
+    
                                 .affordable {
-                                    font-size: 3rem;
-                                    margin-top: -2rem;
+                                    font-size: 3.5rem;
+                                    margin-top: -2.5rem;
                                     font-weight: 800;
                                 }
-        
+    
                                 .page2-button {
                                     width: 8rem;
                                     height: 3rem;
                                     font-weight: 600;
+                                    margin-top: 0.5rem;
                                 }
         
         
@@ -471,24 +544,25 @@ $darkgrey: #626A79;
 
                         .page3-container {
                             .page3-headings {
-                                margin-top: 6rem;
+                                margin-top: 3.8rem;
                                 margin-left: 10rem;
         
                                 .quality {
                                     width: 23rem;
-                                    font-size: 2rem;
+                                    font-size: 2.3rem;
                                 }
-        
+    
                                 .ordernow {
-                                    font-size: 3rem;
-                                    margin-top: -2rem;
+                                    font-size: 3.5rem;
+                                    margin-top: -2.5rem;
                                     font-weight: 800;
                                 }
-        
+    
                                 .page3-button {
                                     width: 8rem;
                                     height: 3rem;
                                     font-weight: 600;
+                                    margin-top: 0.5rem;
                                 }
         
         
@@ -605,11 +679,13 @@ $darkgrey: #626A79;
             }
         }
 
+
+
         .deals-container {
             width: 90%;
             margin: 0 auto;
             margin-top: 2rem;
-            height: 60rem;
+            height: auto;
             display: grid;
             grid-template-rows: repeat(3, minmax(10.5rem, 35vw));
             row-gap: 1.7rem;
@@ -684,18 +760,18 @@ $darkgrey: #626A79;
                 }
                 @media screen and (min-width: 600px) {
                     .deal-image {
-                        width: 14rem;
+                        width: 12rem;
                         right: 4rem;
 
                         @media screen and (min-width: 700px) {
-                            width: 15.5rem;
+                            width: 12rem;
                         }
                     }
     
                     .under {
                         margin-left: 1rem;
-                        margin-top: -0rem;
-                        margin-left: 4.5%;
+                        margin-top: -0.5rem;
+                        margin-left: 3.5%;
                         font-size: 1.2rem;
                         
                     }
@@ -703,17 +779,27 @@ $darkgrey: #626A79;
                     .deal-price {
                         margin-top: -1.6rem;
                         font-size: 2.5rem;
+                        margin-left: 3.5%;
                     }
     
                     .shopnow {
-                        margin-top: -0.8rem;
+                        margin-top: -1.8rem;
                         margin-left: 1rem;
                         font-weight: 300;
                         text-transform: capitalize;
                         position: relative;
                         width: 6rem;
-                        margin-left: 4.5%;
+                        margin-left: 3.5%;
                         font-size: 1.1rem;
+                    }
+
+                    .tags {
+                        width: 8rem;
+                        height: 2rem;
+                        padding-left: 1rem;
+                        margin: 1rem;
+                        margin-top: 2.5%;
+                        margin-left: 3.5%;
                     }
                 }
             }
@@ -737,6 +823,7 @@ $darkgrey: #626A79;
                 grid-template-rows: 9rem;
                 grid-template-columns: 1fr 1fr 1fr;
                 grid-gap: 1rem;
+                height: auto;
 
                 .deals {
                     .deal-image {
@@ -817,7 +904,162 @@ $darkgrey: #626A79;
 
            
         }
+
+        .arrival {
+            width: 90%;
+            margin: 0 auto;
+            margin-top: 2rem;
+            height: auto;
+            display: grid;
+            padding-bottom: 4rem;
+            
+
+            .new {
+                color: $darkgrey;
+            }
+
+            .arrival-line {
+                height: 1.5px;
+                width: 100%;
+                background-color: $grey;
+            }
+
+            .arrival-items-container {
+                margin-top: 2rem;
+                width: 100%;
+                height: auto;
+                overflow-x: scroll;
+
+                .arrival-items-mover {
+                    display: grid;
+                    grid-template-columns: repeat(6, 1fr);
+                    height: 18rem;
+                    width: 90rem;
+                    grid-gap: 2rem;
+                    padding-bottom: 1rem;
+
+                    .arrival-items{
+                        .arr-image-outside {
+                            width: 90%;
+                            position: relative;
+                            height: 70%;
+                            overflow: hidden;
+
+                            .arrival-image {
+                                height: 100%;
+                                width: 100%;
+                                margin: 0 auto;
+                                background-size: cover;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                cursor: pointer;
+                                transition: 0.2s all ease-in-out;
+                            }
+    
+                            .ar-im1 {
+                                background-image: url('../images/newproducts/box.png')
+                            }
+                            .ar-im2 {
+                                background-image: url('../images/newproducts/parcel.png')
+                            }
+                            .ar-im3 {
+                                background-image: url('../images/newproducts/mug.png')
+                            }
+                            .ar-im4 {
+                                background-image: url('../images/newproducts/ecobag.png')
+                            }
+                            .ar-im5{
+                                background-image: url('../images/newproducts/perfume.png')
+                            }
+                            .ar-im6 {
+                                background-image: url('../images/newproducts/phonecase.png')
+                            }
+    
+                        }
+                       
+                        .arrival-name {
+                            text-align: center;
+                            color: #626A79;
+                        }
+
+                        .arrival-price-container {
+                            display: grid;
+                            grid-template-columns: 1fr 1fr;
+                            height: auto;
+                            margin: 0 auto;
+                            margin-top: -0.8rem;
+                            padding: 0;
+                            
+                            width: 9rem;
+                            
+                            & > p {
+                                font-weight: 700;
+                            }
+
+                            .ar-strike {
+                                padding: 0;
+                                margin: 0;
+                                text-align: center;
+                                text-decoration: line-through;
+                                color: $darkgrey;
+                            }
+
+                            .ar-price {
+                                padding: 0;
+                                margin: 0;
+                                text-align: center;
+                                color: $blue;
+                            }
+
+                        }
+                        
+                    }
+
+                }
+
+
+            }
+        }
     }
+}
+
+
+
+.arr-image-outside:before {
+    content: 'ADD TO CART';
+    font-family: $poppins;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding-left: 4.3rem;
+    padding-top: 1rem;
+    overflow: hidden;
+    color: white;
+    display: block;
+    position: absolute;
+    bottom: -1rem;
+    width: 100%;
+    height: 3.5rem;
+    background-color: rgba(17, 24, 39, 0.5);
+    pointer-events: none;
+    background-image: url('../images/add-to-cart.svg');
+    background-repeat: no-repeat;
+    background-position: 2rem 0.8rem;
+    transition: 0.3s all ease-in-out;
+    transform: translateY(100%);
+}
+
+.arr-image-outside:hover:before {
+    transform: translateY(0%) !important;
+}
+
+
+div::-webkit-scrollbar {
+    height: 10px !important;
+}
+    
+div::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
 }
 
 .shopnow:after {
