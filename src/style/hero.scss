@@ -46,7 +46,7 @@ $darkgrey: #626A79;
                 position: relative;
 
                 .carousel-mover {
-                    width: 200%;
+                    width: 300%;
                     height: 100%;
                     display: flex;
                     transition: 0.5s all ease-in-out;
@@ -151,6 +151,55 @@ $darkgrey: #626A79;
     
                         
                     } 
+
+                    .page3-container {
+                        width: 50%;
+                        height: 100%;
+                        background-color: #52D2C7;
+                        position: relative;
+    
+                        .page3-headings {
+                            color: white;
+                            font-family: $poppins;
+                            margin-left: 1rem;
+                            position: relative;
+                            z-index: 2;
+    
+                            .quality {
+                                font-weight: 500;
+                            }
+        
+                            .ordernow {
+                                margin-top: -1.3rem;
+                            }
+    
+                            .page3-button {
+                                width: 6rem;
+                                height: 2rem;
+                                background-color: white;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                color: #52D2C7;
+                                margin-top: -1rem;
+                                position: relative;
+                                border-radius: 10px;
+                                cursor: pointer;
+
+                            }
+                        }
+    
+                        .page3-image {
+                            width: 16rem;
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            margin: auto;
+                        }
+    
+                        
+                    } 
     
                     @media screen and (min-width: 486px) {
                         .hero-container {
@@ -170,6 +219,18 @@ $darkgrey: #626A79;
                                 margin: 2.5rem;
                             }
                             .page2-image {
+                                width: 21rem;
+                                margin: 0;
+                                right: 1rem;
+                                left: auto;
+                            }
+                        }
+
+                        .page3-container {
+                            .page3-headings {
+                                margin: 2.5rem;
+                            }
+                            .page3-image {
                                 width: 21rem;
                                 margin: 0;
                                 right: 1rem;
@@ -202,6 +263,18 @@ $darkgrey: #626A79;
                                 left: auto;
                             }
                         }
+
+                        .page3-container {
+                            .page3-headings {
+                                margin-top: 4rem;
+                            }
+                            .page3-image {
+                                width: 21rem;
+                                margin: 0;
+                                right: 1rem;
+                                left: auto;
+                            }
+                        }
                     }
     
                     @media screen and (min-width: 775px) {
@@ -222,6 +295,18 @@ $darkgrey: #626A79;
                                 margin: 2.5rem;
                             }
                             .page2-image {
+                                width: 60vh;
+                                margin: 0;
+                                right: 1rem;
+                                left: auto;
+                            }
+                        }
+
+                        .page3-container {
+                            .page3-headings {
+                                margin: 2.5rem;
+                            }
+                            .page3-image {
                                 width: 60vh;
                                 margin: 0;
                                 right: 1rem;
@@ -282,6 +367,35 @@ $darkgrey: #626A79;
     
                             }
                             .page2-image {
+                                width: 40%;
+                                margin: 0;
+                                right: 4rem;
+                                left: auto;
+                            }
+                        }
+
+                        .page3-container {
+                            .page3-headings {
+                                margin-top: 15vh;
+                                margin-left: 10%;
+    
+                                .quality {
+                                    width: 23rem;
+                                    font-size: 2rem;
+                                }
+    
+                                .ordernow {
+                                    font-size: 3rem;
+                                }
+    
+                                .page3-button {
+                                    width: 8rem;
+                                    height: 3rem;
+                                }
+    
+    
+                            }
+                            .page3-image {
                                 width: 40%;
                                 margin: 0;
                                 right: 4rem;
@@ -353,7 +467,39 @@ $darkgrey: #626A79;
                                 right: 8rem;
                                 left: auto;
                             }
-                    }
+                        }
+
+                        .page3-container {
+                            .page3-headings {
+                                margin-top: 6rem;
+                                margin-left: 10rem;
+        
+                                .quality {
+                                    width: 23rem;
+                                    font-size: 2rem;
+                                }
+        
+                                .ordernow {
+                                    font-size: 3rem;
+                                    margin-top: -2rem;
+                                    font-weight: 800;
+                                }
+        
+                                .page3-button {
+                                    width: 8rem;
+                                    height: 3rem;
+                                    font-weight: 600;
+                                }
+        
+        
+                            }
+                            .page3-image {
+                                width: 35%;
+                                margin: 0;
+                                right: 8rem;
+                                left: auto;
+                            }
+                        }
     
 
                     
@@ -383,6 +529,16 @@ $darkgrey: #626A79;
                             }
 
                             .page2-image {
+                                width: 30%;
+                            }
+                        }
+
+                        .page3-container {
+                            .page3-headings {
+                                margin-top: 10vh;
+                            }
+
+                            .page3-image {
                                 width: 30%;
                             }
                         }
@@ -430,7 +586,7 @@ $darkgrey: #626A79;
             }
     
             .dots-container {
-                width: 4rem;
+                width: 6rem;
                 height: 0.5rem;
                 position: absolute;
                 bottom: 0.6rem;
@@ -705,6 +861,15 @@ $darkgrey: #626A79;
     transform: scale(0.8);
 }
 
+.page3-button:after {
+    content: url('../images/page3-explore.svg');
+    display: block;
+    position: absolute;
+    right: -21.6px;
+    top: 2.5px;
+    transform: scale(0.8);
+}
+
 @media screen and (min-width: 875px) {
     .hero-button:after {
         right: -22.6px;
@@ -713,6 +878,12 @@ $darkgrey: #626A79;
     }
 
     .page2-button:after {
+        right: -22.6px;
+        top: 11px;
+        transform: scale(1);
+    }
+
+    .page3-button:after {
         right: -22.6px;
         top: 11px;
         transform: scale(1);
