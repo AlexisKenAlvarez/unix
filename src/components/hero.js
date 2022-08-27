@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { nextSlide } from '../features/slideSlice'
+import { useDraggable } from "react-use-draggable-scroll";
 
 import '../style/hero.scss'
 
@@ -13,6 +14,13 @@ import deal1 from '../images/me.png';
 import deal2 from '../images/joy.png';
 
 const Hero = () => {
+
+    const ref = useRef();
+    const { events } = useDraggable(ref, {
+        isMounted: true, 
+        applyRubberBandEffect: true, // activate rubber band effect
+      });
+
     const slide = useSelector((state) => state.nextSlide.value)
     const dispatch = useDispatch();
 
@@ -131,7 +139,8 @@ const Hero = () => {
                     <section className='arrival'>
                         <p className='new'>NEW ARRIVALS</p>
                         <div className='arrival-line'></div>
-                        <div className='arrival-items-container'>
+
+                        <div className='arrival-items-container' {...events} ref={ref}>
 
                             {/* ARRIVAL ITEMS */}
                             <div className='arrival-items-mover'>

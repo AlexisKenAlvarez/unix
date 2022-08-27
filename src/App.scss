@@ -3,6 +3,7 @@
 $poppins: 'Poppins', sans-serif;
 $blue: #79C7D1;
 $grey: #DADADA;
+$darkgrey: #626A79;
 
 body, html {
     box-sizing: border-box;
@@ -227,4 +228,150 @@ body, html {
 
 }
 
+// FOOTER
+.footer-wrapper {
+    margin-top: 2rem;
+    padding-top: 4rem;
+    width: 100%;
+    height: auto;
+    background-color: #fbfbfb;
+    font-family: $poppins;
+    .footer-container {
+        max-width: 1400px;
+        width: 90%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-rows: 5rem 10rem 10rem;
 
+
+        .footer-logo {
+            margin: 0 auto;
+            display: block;
+            width: 12rem;
+            cursor: pointer;
+        }
+
+        .footer-mail-container {
+            margin: 0 auto;
+            .newcomer {
+                font-size: 0.9rem;
+                width: 90%;
+                margin-left: 1rem;
+                color: $darkgrey;
+                text-align: center;
+
+            }
+            .footer-form {
+                margin: 0 auto;
+                width: 90%;
+                display: flex;
+                box-sizing: border-box;
+                display: grid;
+                grid-template-columns: 1fr 0.15fr;
+
+                .sendmail {
+                    height: 2.4rem;
+                    border: none;
+                    outline: none;
+                    background-color: #F6F6F6;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                }
+
+                .footer-send-button {
+                    background: $blue;
+                    height: 2.4rem;
+                    background-image: url('./images/send-svgrepo-com.svg');
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: 1.3rem;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .footer-information-container {
+            margin: 0 auto;
+            width: 20rem;
+            margin-top: -0.8rem;
+
+            .footer-info {
+                color: #6DA5AC;
+                font-size: 1.3rem;
+                margin-left: 1rem;
+            }
+
+            .footer-list {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+
+                & > ul {
+                    list-style-type: none;
+                    text-decoration: none;
+                    margin: 0;
+                    padding: 0;
+
+                    & > li {
+                        margin-left: 1rem;
+                        margin-bottom: 7px;
+                        cursor: pointer;
+                        transition: 0.2s all ease;
+                    }
+                }
+ 
+            }
+
+            .footer-socmed-container {
+                margin-top: 1rem;
+                margin-left: 1rem;
+                width: 13rem;
+                display: flex;
+                justify-content: space-between;
+
+                & > img {
+                    cursor: pointer;
+                    transition: 0.2s all ease;
+                    filter: invert(87%) sepia(25%) saturate(411%) hue-rotate(139deg) brightness(98%) contrast(91%);
+                }
+            }
+        }
+
+        @media screen and (min-width: 1000px) {
+            grid-template-rows: 12rem;
+            grid-template-columns: 1fr 1fr 1fr;
+
+            .footer-logo {
+                margin: 0 auto;
+                margin-top: 0.8rem;
+                width: 12rem;
+            }
+
+            .footer-information-container {
+                margin: 0 auto;
+                width: 20rem;
+                margin-top: -0rem;
+    
+            }
+        }
+    }
+    .footer-line {
+        background-color: $grey;
+        height: 1.5px;
+        width: 100%;
+        margin-top: 4rem;
+    }
+
+    .footer-allrights {
+        text-align: center;
+        color: $darkgrey;
+    }
+
+}
+
+.footer-soc:hover {
+    filter: invert(87%) sepia(25%) saturate(611%) hue-rotate(139deg) brightness(58%) contrast(91%) !important;
+}
+
+.footer-items:hover {
+    color: $blue !important;
+}
