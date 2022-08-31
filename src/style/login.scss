@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+$poppins: 'Poppins', sans-serif;
+
+.login-wrapper {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    .login-nav {
+        display: none;
+        width: 100%;
+        height: auto;
+        background-color: white;
+
+        .nav-inner {
+            padding: 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            height: 5rem;
+
+            .login-nav-logo {
+                width: 9rem;
+                margin-top: 1rem;
+                margin-left: 1rem;
+            }
+        }
+
+
+    }
+
+    .login-hero-outer {
+        width: 100%;
+        height: 100% !important;
+        overflow: hidden;
+
+        .elements-login {
+            display: none;
+            position: absolute;
+        }
+
+        .element1 {
+            left: 0;
+            transform: rotate(-180deg);
+        }
+
+        .element2 {
+            right: 0;
+        }
+        
+        
+        .login-hero {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            height: 100% !important;
+
+
+            .existing {
+                display: none;
+                color: white;
+                margin-right: 0rem;
+                margin-top: 12rem;
+                width: 25rem;
+                height: 10rem;
+                justify-self: end;
+                font-size: 2.5rem;
+                font-weight: 700;
+
+                @media screen and (min-width: 1232px) {
+                    font-size: 3.5rem;
+                    width: 35rem;
+                }
+
+                @media screen and (min-width: 1544px) {
+                    & > span {
+                        color: #2E838E;
+                    }
+                }
+            }
+    
+            .login-box {
+                width: 20rem;
+                margin: 0 auto;
+                height: 100%;
+                background-color: white;
+    
+                .arrow-container {
+                    display: flex;
+                    width: 7rem;
+                    justify-content: space-around;
+                    margin-top: 0.5rem;
+                    margin-left: 0rem;
+    
+                    .arrow-back {
+                        width: 3rem;
+                    }
+                }
+    
+                .login-logo-inner {
+                    margin: 0 auto;
+                    display: block;
+                    margin-top: 4rem;
+                    width: 12rem;
+                }
+    
+                .login-form {
+                    .login-email-wrapper {
+                        margin-top: 2rem !important;
+                        width: 100%;
+                        overflow: hidden;
+                        margin: 0 auto;
+    
+                        .email-label {
+                            font-size: 1.2rem;
+                        }
+
+                        .email-input {
+                            width: 18.2rem;
+                        }
+    
+                    }
+    
+                    .login-password-wrapper {
+                        margin-top: 1rem !important;
+                        width: 100%;    
+                        margin: 0 auto;
+                        position: relative;
+    
+                        .togglePassword {
+                            position: absolute;
+                            top: 3rem;
+                            right: 1.6rem;
+                            cursor: pointer;
+                            -webkit-tap-highlight-color: transparent;
+                            -webkit-touch-callout: none;
+                            -webkit-user-select: none;
+                            -khtml-user-select: none;
+                            -moz-user-select: none;
+                            -ms-user-select: none;
+                            user-select: none;
+                        
+                        }
+    
+                        .password-input {
+                            padding-right: 4rem;
+                            width: 14.8rem;
+                        }
+    
+                        .password-label {
+                            font-size: 1.2rem;
+                        }
+                    }
+    
+                    .login-submit {
+                        width: 19.5rem;
+                        height: 3rem;
+                        font-size: 1.4rem;
+                        margin-top: 2rem;
+                        background-color: #79C7D1;
+                        color: white;
+                        border: none;
+                        font-weight: 500;
+                        cursor: pointer;
+                    }
+    
+                    .signup {
+                        font-size: 1.2rem;
+                        font-weight: 500;
+                        cursor: pointer;
+                        width: 4.7rem;
+                    }
+                }
+            }
+
+            @media screen and (min-width: 950px) {
+
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+
+                .existing {
+                    display: block;
+                }
+
+                .login-box {
+                    height: 30rem;
+                    max-width: 20rem;
+                    padding: 0rem 3rem 0rem 3rem;
+                    margin: 0;
+                    position: absolute;
+                    top: 3rem;
+                    right: 4rem;
+                    border-radius: 14px;
+                    
+                    .arrow-container {
+                        display: none;
+                    }
+    
+                    .login-logo-inner {
+                        display: none;
+                    }
+    
+                    .login-form {
+                        .login-password-wrapper {
+                            .password-input {
+                                width: 14.7rem !important;
+                            }
+                        }
+    
+                        .login-email-wrapper {
+                            .email-label {
+                                font-size: 1.2rem;
+                                
+                            }
+    
+                            .email-input {
+                                width: 18.2rem !important;
+                            }
+        
+                        }
+                    }
+    
+                }
+            }
+        }
+
+        @media screen and (min-width: 950px) {
+            background-color: #79C7D1;
+
+            .elements-login {
+                display: block;
+                width: 41.5rem;
+            }
+        }
+
+
+    }
+
+    @media screen and (min-width: 950px) {
+        height: 43rem;
+        overflow: hidden;
+
+        .login-nav {
+            display: block;
+        }
+    }
+}
+
+.primary {
+    color: #626A79;
+    font-family: $poppins;
+}
+
+.input-box {
+    outline: none;
+    border: 1px solid #626A79;
+    padding: 0.5rem;
+    color: #626A79;
+    height: 1.7rem;
+    width: 93%;
+    margin-top: -0.5rem;
+    font-size: 1.2rem;
+}
+
+.poppins {
+    font-family: $poppins;
+}

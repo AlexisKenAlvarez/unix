@@ -5,11 +5,18 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from 'react-redux';
 
 import { configureStore } from "@reduxjs/toolkit";
+
+// REDUCER SLICE
 import Slide from './features/slideSlice'
+import ToggleNav from './features/navSlice'
+import UpdateRegister from './features/registerSlice'
+
 
 export const store = configureStore({
     reducer: {
-        nextSlide: Slide
+        nextSlide: Slide,
+        toggleNav: ToggleNav,
+        updateRegister: UpdateRegister
     }
 })
 

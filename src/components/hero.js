@@ -13,6 +13,9 @@ import image3 from '../images/page3.png';
 import deal1 from '../images/me.png';
 import deal2 from '../images/joy.png';
 
+// COMPONENTS
+import ScrollToTop from '../ScrollToTop';
+
 const Hero = () => {
 
     const ref = useRef();
@@ -40,9 +43,12 @@ const Hero = () => {
         }
     }
 
+
+
     return (
 
         <>
+            <ScrollToTop/>
             <div className='hero-wrapper'>
                 <div className='hero-container'>
                     <p className='categ'>CATEGORIES</p>
@@ -64,7 +70,7 @@ const Hero = () => {
 
                                         <div className='hero-button'>EXPLORE</div>
                                     </div>
-                                    <img className='hero-image' src={image1}></img>
+                                    <img className='hero-image' src={image1} alt="Model"></img>
     
                                 </div>
 
@@ -75,7 +81,7 @@ const Hero = () => {
 
                                         <div className='page2-button'>EXPLORE</div>
                                     </div>
-                                    <img className='page2-image' src={image2}></img>
+                                    <img className='page2-image' src={image2} alt="Model"></img>
                                 </div>
 
                                 <div className='page3-container car-child'>
@@ -85,7 +91,7 @@ const Hero = () => {
 
                                         <div className='page3-button'>EXPLORE</div>
                                     </div>
-                                    <img className='page3-image' src={image3}></img>
+                                    <img className='page3-image' src={image3} alt="Model"></img>
                                 </div>
                             </div>
                         </div>
@@ -102,7 +108,7 @@ const Hero = () => {
 
                     <section className='deals-container'>
                         <div className='deal1 deals'>
-                            <img src={deal2} className="deal1-image deal-image"></img>
+                            <img src={deal2} className="deal1-image deal-image" alt="Deals"></img>
                             <div className='tag1 tags'>
                                 HOT DEALS
                             </div>
@@ -113,7 +119,7 @@ const Hero = () => {
                             
                         </div>
                         <div className='deal2 deals'>
-                            <img src={deal1} className="deal2-image deal-image"></img>
+                            <img src={deal1} className="deal2-image deal-image"  alt="Deals"></img>
                             <div className='tag2 tags'>
                                 HOT DEALS
                             </div>

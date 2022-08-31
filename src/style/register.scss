@@ -1,0 +1,398 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+$poppins: 'Poppins', sans-serif;
+
+.register-wrapper {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    .register-nav {
+        display: none;
+        width: 100%;
+        height: auto;
+        background-color: white;
+
+        .nav-inner {
+            padding: 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            height: 5rem;
+
+            .register-nav-logo {
+                width: 9rem;
+                margin-top: 1rem;
+                margin-left: 1rem;
+            }
+        }
+
+
+    }
+
+    .register-hero-outer {
+        width: 100%;
+        height: 100% !important;
+        overflow: hidden;
+
+        .elements-register {
+            display: none;
+            position: absolute;
+        }
+
+        .element1 {
+            left: 0;
+            transform: rotate(-180deg);
+        }
+
+        .element2 {
+            right: 0;
+        }
+        
+        
+        .register-hero {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            height: 100% !important;
+
+
+            .existing {
+                display: none;
+                color: white;
+                margin-right: 0rem;
+                margin-top: 12rem;
+                width: 25rem;
+                height: 10rem;
+                justify-self: end;
+                font-size: 2.5rem;
+                font-weight: 700;
+
+                @media screen and (min-width: 1232px) {
+                    font-size: 3.5rem;
+                    width: 35rem;
+                }
+
+                @media screen and (min-width: 1544px) {
+                    & > span {
+                        color: #2E838E;
+                    }
+                }
+            }
+    
+            .register-box {
+                width: 20rem;
+                margin: 0 auto;
+                height: 100%;
+                background-color: white;
+    
+                .arrow-container {
+                    display: flex;
+                    width: 7rem;
+                    justify-content: space-around;
+                    margin-top: 0.5rem;
+                    margin-left: 0rem;
+    
+                    .arrow-back {
+                        width: 3rem;
+                    }
+                }
+    
+                .register-logo-inner {
+                    margin: 0 auto;
+                    display: block;
+                    margin-top: 1rem;
+                    width: 12rem;
+                }
+
+                .register-pages-container {
+                    display: flex;
+                    margin: 0 auto;
+                    width: 18rem;
+                    margin-top: 2rem;
+                    justify-content: space-between;
+
+                    .reg-arrows {
+                        width: 3rem;
+                    }
+            
+                    .reg-circles {
+                        width: 2.5rem;
+                        height: 2.5rem;
+                        background-color: #D9D9D9;
+                        color: white;
+                        border-radius: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-family: $poppins;
+                        position: relative;
+
+                        & > p {
+                            color: #626A79;
+                            margin-top: 5.5rem;
+                            font-size: 0.8rem;
+                            position: absolute;
+                        }
+
+                        .regtext1 {
+                            width: 4.7rem;
+                        }
+
+                        .regtext2 {
+                            width: 7.5rem;
+                        }
+                    }
+
+                    .register-1 {
+                        background-color: #2E838E;
+                    }
+                }
+    
+                .register-form {
+                    position: relative;
+
+                    .error-handler {
+                        color: #EA2525;
+                        margin: 0;
+                        padding: 0;
+                        position: relative;
+                        left: 1.8rem;
+                        top: -0.5rem;
+                    }
+                    .register-email-wrapper {
+                        margin-top: 2rem !important;
+                        width: 100%;
+                        overflow: hidden;
+                        margin: 0 auto;
+    
+                        .email-label {
+                            font-size: 1.2rem;
+                        }
+
+                        .email-input {
+                            width: 18.2rem;
+                        }
+    
+                    }
+
+                    .register-password-wrapper {
+                        margin-top: 2rem !important;
+                        width: 100%;
+                        overflow: hidden;
+                        margin: 0 auto;
+    
+                        .password-label {
+                            font-size: 1.2rem;
+                        }
+
+                        .password-input {
+                            width: 14.8rem;
+                            overflow: hidden;
+                            padding-right: 4rem;
+                        }
+
+                        .togglePassword {
+                            position: absolute;
+                            right: 1.5rem;
+                            cursor: pointer;
+
+                        }
+    
+                    }
+
+                    .reg-done-wrapper {
+                        margin-top: 4rem;
+
+                        .done-email-div {
+                            display: flex;
+                            height: 1.5rem;
+
+                            .email-label-done {
+                                font-weight: 600;
+                                margin: 0;
+                                padding: 0;
+                            }
+
+                            .done-email  {
+                                margin: 0;
+                                margin-left: 0.5rem;
+                                text-overflow: ellipsis;
+                                overflow: hidden; 
+                                white-space: nowrap;
+                            }
+                        }
+
+                        .done-password-div {
+                            display: flex;
+                            height: 1.5rem;
+                            margin-top: 1rem;
+
+                            .password-label-done {
+                                font-weight: 600;
+                                margin: 0;
+
+                            }
+
+                            .done-password {
+                                margin: 0;
+                                text-overflow: ellipsis;
+                                overflow: hidden; 
+                                white-space: nowrap;
+                                margin-left: 0.5rem;
+                                font-size: 1rem;
+                            }
+                        }
+
+                        
+
+                        .done-show {
+                            cursor: pointer;
+                            margin: 0;
+                            padding: 0;
+                            margin-top: 1rem;
+                            margin-bottom: 2rem;
+                            user-select: none; /* supported by Chrome and Opera */
+                            -webkit-user-select: none; /* Safari */
+                            -khtml-user-select: none; /* Konqueror HTML */
+                            -moz-user-select: none; /* Firefox */
+                            -ms-user-select: none; /* Internet Explorer/Edge */
+                        }
+                    }
+    
+    
+                    .register-submit {
+                        width: 19.4rem;
+                        height: 3rem;
+                        font-size: 1.4rem;
+                        margin-top: 0rem;
+                        background-color: #79C7D1;
+                        color: white;
+                        border: none;
+                        font-weight: 500;
+                        cursor: pointer;
+                    }
+    
+                    .login {
+                        font-size: 1.2rem;
+                        font-weight: 500;
+                        cursor: pointer;
+                        width: 3.8rem;
+                    }
+                }
+            }
+
+            @media screen and (min-width: 950px) {
+
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+
+                .existing {
+                    display: block;
+                }
+
+                .register-box {
+                    height: 30rem;
+                    max-width: 20rem;
+                    padding: 0rem 3rem 0rem 3rem;
+                    margin: 0;
+                    position: absolute;
+                    top: 3rem;
+                    right: 4rem;
+                    border-radius: 14px;
+                    
+                    .arrow-container {
+                        display: none;
+                    }
+    
+                    .register-logo-inner {
+                        display: none;
+                    }
+    
+                    .register-form {
+    
+                        .register-email-wrapper {
+                            .email-label {
+                                font-size: 1.2rem;
+                                
+                            }
+    
+                            .email-input {
+                                width: 18.2rem !important;
+                            }
+        
+                        }
+                    }
+
+                }
+            }
+        }
+
+        @media screen and (min-width: 950px) {
+            background-color: #79C7D1;
+
+            .elements-register {
+                display: block;
+                width: 41.5rem;
+            }
+        }
+
+
+    }
+
+    @media screen and (min-width: 950px) {
+        height: 43rem;
+        overflow: hidden;
+
+        .register-nav {
+            display: block;
+        }
+    }
+}
+
+.primary {
+    color: #626A79;
+    font-family: $poppins;
+}
+
+.input-box {
+    outline: none;
+    border: 1px solid #626A79;
+    padding: 0.5rem;
+    color: #626A79;
+    height: 1.7rem;
+    width: 93%;
+    margin-top: -0.5rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.poppins {
+    font-family: $poppins;
+}
+
+.register-1:before {
+    content: '1';
+    display: block;
+    position: absolute;
+}
+
+.register-2:before {
+    content: '2';
+    display: block;
+    position: absolute;
+}
+
+.register-3:before {
+    content: '3';
+    display: block;
+    position: absolute;
+}
+
+.error-handler:before {
+    content: url('../images/register/warning.svg');
+    left: -1.5rem;
+    top: 0.2rem;
+    display: block;
+    position: absolute;
+}
