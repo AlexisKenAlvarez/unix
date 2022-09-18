@@ -52,7 +52,7 @@ const Cart = () => {
     }
 
     // GET PRODUCTS AND STORE IT TO PRODUCTS SLICE
-    Axios.post("http://localhost:3001/products").then((response) => {
+    Axios.post("https://unix.herokuapp.com/products").then((response) => {
       dispatch(getItems({items: response.data.items}))
       
     })
@@ -122,7 +122,7 @@ const Cart = () => {
     const action = e.currentTarget.id
     const productName = e.currentTarget.parentNode.getAttribute("data-key");
 
-    Axios.post("http://localhost:3001/handleQuantity", {action: action, productName: productName}).then((response) => {
+    Axios.post("https://unix.herokuapp.com/handleQuantity", {action: action, productName: productName}).then((response) => {
 
       if (action === "add") {
         dispatch(setTotal({value: totalPrice.value + response.data.price})) // ADD VALUE TO THE TOTAL
@@ -138,7 +138,7 @@ const Cart = () => {
 
       // RE RENDER PRODUCTS
           // GET PRODUCTS AND STORE IT TO PRODUCTS SLICE
-          Axios.post("http://localhost:3001/products").then((response) => {
+          Axios.post("https://unix.herokuapp.com/products").then((response) => {
             dispatch(getItems({items: response.data.items}))
             
           })

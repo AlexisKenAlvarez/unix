@@ -20,7 +20,7 @@ const About = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        Axios.get("http://localhost:3001/login").then((response) => {
+        Axios.get("https://unix.herokuapp.com/login").then((response) => {
             if (response.data?.user) {
                 dispatch(setStatus({status: true}))
       

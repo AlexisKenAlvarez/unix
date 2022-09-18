@@ -67,7 +67,7 @@ const Hero = () => {
         dispatch(handleCart({onCart: false}))
 
         // TO SET LOGGEDIN STATUS
-        Axios.get("http://localhost:3001/login").then((response) => {
+        Axios.get("https://unix.herokuapp.com/login").then((response) => {
         if (response.data.loggedIn === true) {
             const userEmail = response.data.user[0].email
             dispatch(setStatus({status: true}))
@@ -78,7 +78,7 @@ const Hero = () => {
         }   
         })
 
-        Axios.get("http://localhost:3001/getproducts").then((response) => {
+        Axios.get("https://unix.herokuapp.com/getproducts").then((response) => {
             setProducts(response.data.Products)
         })
 
@@ -88,7 +88,7 @@ const Hero = () => {
     const addCart = (event) => {
         const itemName = event.currentTarget.id
 
-        Axios.post("http://localhost:3001/addtocart", {product: itemName}).then((response) => {
+        Axios.post("https://unix.herokuapp.com/addtocart", {product: itemName}).then((response) => {
             console.log("3")
                 if (response.data.loggedIn === false) {
                     navigate("/login", {replace: true})
@@ -107,7 +107,7 @@ const Hero = () => {
     }
 
     const renderCart = (email) => {
-        Axios.post('http://localhost:3001/products', {email: email}).then((response) => {
+        Axios.post('https://unix.herokuapp.com/products', {email: email}).then((response) => {
             const items = response.data.items
             let itemList = []
 

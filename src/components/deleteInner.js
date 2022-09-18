@@ -90,7 +90,7 @@ const DeleteInner = () => {
     const handleDelete = () => {
         const productToDelete = deleteThis.name
 
-        Axios.post("http://localhost:3001/delete", {productName: productToDelete}).then((response) => {
+        Axios.post("https://unix.herokuapp.com/delete", {productName: productToDelete}).then((response) => {
 
             dispatch(showAnimate({ state: true }))
 
@@ -99,7 +99,7 @@ const DeleteInner = () => {
             
             }, 1500);
 
-            Axios.post('http://localhost:3001/products').then((response) => {
+            Axios.post('https://unix.herokuapp.com/products').then((response) => {
                 const items = response.data.items
                 let itemList = []
         

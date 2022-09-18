@@ -58,7 +58,7 @@ const Register = () => {
                 dispatch(setErr({msg: 'Invalid Email!'}))
 
             } else {
-                Axios.post("http://localhost:3001/checkEmail", {email: updateReg.email}).then((response) => {
+                Axios.post("https://unix.herokuapp.com/checkEmail", {email: updateReg.email}).then((response) => {
                     if (response.data.valid === false) {
                         dispatch(setErr({msg: 'This email is already in use.'}))
                         console.log(response.data)
@@ -92,7 +92,7 @@ const Register = () => {
 
             if (enabled) {
                 setEnabled(false)
-                Axios.post('http://localhost:3001/register', {email: userEmail, password: userPassword}).then((response) => {
+                Axios.post('https://unix.herokuapp.com/register', {email: userEmail, password: userPassword}).then((response) => {
                     if (response) {
                         setReg(true)
     
