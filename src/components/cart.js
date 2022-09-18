@@ -122,6 +122,7 @@ const Cart = () => {
     const action = e.currentTarget.id
     const productName = e.currentTarget.parentNode.getAttribute("data-key");
     setLoading(true)
+    setProdName(productName)
 
     Axios.post("https://unix.herokuapp.com/handleQuantity", {action: action, productName: productName}).then((response) => {
 
