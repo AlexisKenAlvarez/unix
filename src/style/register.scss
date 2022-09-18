@@ -24,6 +24,7 @@ $poppins: 'Poppins', sans-serif;
                 width: 9rem;
                 margin-top: 1rem;
                 margin-left: 1rem;
+                cursor: pointer;
             }
         }
 
@@ -92,6 +93,7 @@ $poppins: 'Poppins', sans-serif;
                     justify-content: space-around;
                     margin-top: 0.5rem;
                     margin-left: 0rem;
+                    cursor: pointer;
     
                     .arrow-back {
                         width: 3rem;
@@ -395,4 +397,48 @@ $poppins: 'Poppins', sans-serif;
     top: 0.2rem;
     display: block;
     position: absolute;
+}
+
+.done-bg {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 99999;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    .check-container {
+        width: 100%;
+        height: 100vh;
+        background-color: white;
+        color: #2E838E;
+        overflow: hidden;
+
+        .done-check {
+            width: 7rem;
+            margin: 0 auto;
+            display: block;
+            margin-top: 3rem;
+        }
+
+        .done-text {
+            text-align: center;
+            font-size: 1.5rem;
+            width: 14rem;
+            margin: 0 auto;
+        }
+    }
+
+    @media screen and (min-width: 660px) {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .check-container {
+            width: 60%;
+            max-width: 600px;
+            height: 20rem;
+            border-radius: 1rem;
+        }
+    }
 }

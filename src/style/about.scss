@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+$poppins: 'Poppins', sans-serif;
+$playfair: 'Playfair Display', serif;
+$blue: #79C7D1;
+$grey: #DADADA;
+$darkgrey: #626A79;
+$red: #AF4C4C;
+$buttongrey: #D9D9D9;
+$buttontext: #575757;
+
+.about-wrapper {
+    height: auto;
+    background-color: white;
+    margin-top: 8.5rem;
+    font-family: $poppins;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 5rem;
+
+    .about-container {
+        width: 80%;
+        max-width: 1400px;
+        margin: 0 auto;
+        height: auto;
+        display: grid;
+        margin-top: 3rem;
+        grid-template-rows: 20rem 7rem auto;
+        
+
+        .about-image-container {
+            width: 14rem;
+            height: 18rem;
+            margin: 0 auto;
+            position: relative;
+            .about-image {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                justify-self: center;
+                position: relative;
+                z-index: 1;
+            }
+
+            .abt-img-line1 {
+                background-color: #79C7D1;
+                position: absolute;
+                left: 10px;
+                height: 4rem;
+                top: 9px;
+                width: 4px;
+                z-index: 2;
+            }
+
+            .abt-img-line2 {
+                background-color: #79C7D1;
+                position: absolute;
+                right: 10px;
+                height: 6rem;
+                bottom: 0px;
+                width: 4px;
+                z-index: 2;
+            }
+
+        }
+
+        .about-header {
+            position: relative;
+            height: auto;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: $playfair;
+
+            .about-h1 {
+                color: #505050;
+                z-index: 2;
+                position: relative;
+                margin: 0;
+                height: 3rem;
+            }
+
+            .about-unix {
+
+                position: absolute;
+                color: #EFEFEF;
+                top: -1.8rem;
+                margin: 0;
+                padding: 0;
+                font-size: 7.4rem;
+                left: auto;
+                right: auto;
+                z-index: 1;
+                text-align: center;
+            }
+        }
+
+        .about-info-container {
+            .about-p {
+                text-align: justify;
+                margin-bottom: 2rem;
+                font-family: $poppins;
+            }
+
+            .about-p1 {
+                text-indent: 2rem;
+            }
+
+            
+            .abt-contact-container {
+                width: 6rem;
+                display: flex;
+                justify-content: space-between;
+
+                & > img {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        @media screen and (min-width: 768px) {
+            width: 90%;
+            grid-template-rows: 7rem auto;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 2rem;
+            row-gap: 1rem;
+            grid-template-areas: 
+            "imagec abtheader"
+            "imagec abtinfo";
+            justify-content: center;
+
+            @media screen and (min-width: 1060px) {
+                column-gap: 3rem;
+                grid-template-columns: 23rem minmax(min-content, 550px);
+            }
+
+            .about-image-container {
+                grid-area: imagec;
+                width: 19rem;
+                height: 27rem;
+
+                .abt-img-line1 {
+                    top: 16px;
+                }
+
+                @media screen and (min-height: 722px) {
+                    height: 30rem;
+                    width: 21rem;
+                }
+
+                @media screen and (min-height: 765px) {
+                    height: 33rem;
+                    width: 22.5rem;
+
+
+                }
+            }
+
+            .about-header {
+                grid-area: abtheader;
+                justify-content: unset;
+
+
+                .about-h1 {
+                    justify-self: center;
+                    margin-left: 0.8rem;
+                }
+            }
+
+            .about-info-container {
+                grid-area: abtinfo;
+
+                .about-p {
+                    font-size: 15px;
+
+                    @media screen and (min-width: 1060px) {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.about-h1:before {
+    content: '';
+    border: 1px solid #000000;
+    display: block;
+    position: absolute;
+    right: -1.5rem;
+    top: -0.3rem;
+    height: 3.5rem;
+    width: 7rem;
+}

@@ -1,24 +1,42 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { nextSlide } from '../features/slideSlice'
 import { useDraggable } from "react-use-draggable-scroll";
+import { useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+
+// SLICES
+import { nextSlide } from '../features/slideSlice'
+import { setStatus } from '../features/statusSlice'
+import { getItems } from '../features/productSlice'
+import { handleCart } from '../features/cartSlice'
+
+
 
 import '../style/hero.scss'
 
 // IMAGES
-import image1 from '../images/hero.png';
-import image2 from '../images/page2.png';
-import image3 from '../images/page3.png';
-
-import deal1 from '../images/me.png';
-import deal2 from '../images/joy.png';
+// import image1 from '../images/hero.webp';
+// import image2 from '../images/page2.webp';
+// import image3 from '../images/page3.webp';
+// import Box from '../images/newproducts/box.webp'
+// import deal1 from '../images/me.webp';
+// import deal2 from '../images/joy.webp';
+import Cart from '../images/animation_300_l7nbf08m.gif'
 
 // COMPONENTS
 import ScrollToTop from '../ScrollToTop';
+import Axios from 'axios';
+import { Navigate } from 'react-router-dom';
 
 const Hero = () => {
-
+    const navigate = useNavigate()
     const ref = useRef();
+
+    // STATES
+    const [pop, setPop] = useState(false)
+    const [email, setEmail] = useState('')
+    const [products, setProducts] = useState([]);
+
     const { events } = useDraggable(ref, {
         isMounted: true, 
         applyRubberBandEffect: true, // activate rubber band effect
@@ -26,6 +44,8 @@ const Hero = () => {
 
     const slide = useSelector((state) => state.nextSlide.value)
     const dispatch = useDispatch();
+    Axios.defaults.withCredentials = true;
+
 
     const handleNext = () => {
         if (slide.page >= 3) {
@@ -43,12 +63,120 @@ const Hero = () => {
         }
     }
 
+    useEffect(() => {
+        dispatch(handleCart({onCart: false}))
+
+        // TO SET LOGGEDIN STATUS
+        Axios.get("http://localhost:3001/login").then((response) => {
+        if (response.data.loggedIn === true) {
+            const userEmail = response.data.user[0].email
+            dispatch(setStatus({status: true}))
+            setEmail(userEmail)
+
+            renderCart(userEmail)
+
+        }   
+        })
+
+        Axios.get("http://localhost:3001/getproducts").then((response) => {
+            setProducts(response.data.Products)
+        })
+
+    }, [])
+
+
+    const addCart = (event) => {
+        const itemName = event.currentTarget.id
+
+        Axios.post("http://localhost:3001/addtocart", {product: itemName}).then((response) => {
+            console.log("3")
+                if (response.data.loggedIn === false) {
+                    navigate("/login", {replace: true})
+                } else {
+                    setPop(true)
+
+                    setTimeout(() => {
+                        setPop(false)
+                    }, 1400);
+
+                    renderCart(email)
+
+
+                }
+            })
+    }
+
+    const renderCart = (email) => {
+        Axios.post('http://localhost:3001/products', {email: email}).then((response) => {
+            const items = response.data.items
+            let itemList = []
+
+            items.forEach((item) => {
+                itemList.push(item)
+            })
+
+            dispatch(getItems({items: itemList}))
+        })
+    }
+
+    const popVariants = {
+        pop: {
+            scale: 1,
+            transition: {
+                delay: 0.2,
+                type: "spring",
+                duration: 0.5
+            }
+        },
+
+        hidden: {
+            scale: 0,
+            transition: {
+                delay: 0.2,
+                type: "tween",
+                duration: 0.5
+            } 
+        },
+
+        opacIn: {
+            opacity: 1,
+            transition: {
+                delay: 0.2,
+                type: "tween",
+                duration: 0.5
+            } 
+        },
+
+        opacOut: {
+            opacity: 0,
+            transition: {
+                delay: 0.2,
+                type: "tween",
+                duration: 0.5
+            } 
+        }
+    }
+
+    const addDone = (
+        <>
+            <motion.div className="cart-bg"
+            variants={popVariants} initial="opacOut" animate="opacIn" exit="opacOut">
+                <motion.div className="check-container"
+                variants={popVariants} initial="hidden" animate="pop" exit="hidden">
+                    <img src={Cart} className="cart-check" alt="Cart"></img>
+                    <h1 className="poppins cart-text">Item has been added to your cart.</h1>
+                </motion.div>
+            </motion.div>
+        </>
+    )
+
 
 
     return (
 
         <>
             <ScrollToTop/>
+            
             <div className='hero-wrapper'>
                 <div className='hero-container'>
                     <p className='categ'>CATEGORIES</p>
@@ -70,7 +198,7 @@ const Hero = () => {
 
                                         <div className='hero-button'>EXPLORE</div>
                                     </div>
-                                    <img className='hero-image' src={image1} alt="Model"></img>
+                                    <img className='hero-image' src="https://unix-shop.s3.ap-southeast-1.amazonaws.com/hero.webp" alt="Model"></img>
     
                                 </div>
 
@@ -81,7 +209,7 @@ const Hero = () => {
 
                                         <div className='page2-button'>EXPLORE</div>
                                     </div>
-                                    <img className='page2-image' src={image2} alt="Model"></img>
+                                    <img className='page2-image' src="https://unix-shop.s3.ap-southeast-1.amazonaws.com/page2.webp" alt="Model"></img>
                                 </div>
 
                                 <div className='page3-container car-child'>
@@ -91,7 +219,7 @@ const Hero = () => {
 
                                         <div className='page3-button'>EXPLORE</div>
                                     </div>
-                                    <img className='page3-image' src={image3} alt="Model"></img>
+                                    <img className='page3-image' src="https://unix-shop.s3.ap-southeast-1.amazonaws.com/page3.webp" alt="Model"></img>
                                 </div>
                             </div>
                         </div>
@@ -108,7 +236,7 @@ const Hero = () => {
 
                     <section className='deals-container'>
                         <div className='deal1 deals'>
-                            <img src={deal2} className="deal1-image deal-image" alt="Deals"></img>
+                            <img src="https://unix-shop.s3.ap-southeast-1.amazonaws.com/joy.webp" className="deal1-image deal-image" alt="Deals"></img>
                             <div className='tag1 tags'>
                                 HOT DEALS
                             </div>
@@ -119,7 +247,7 @@ const Hero = () => {
                             
                         </div>
                         <div className='deal2 deals'>
-                            <img src={deal1} className="deal2-image deal-image"  alt="Deals"></img>
+                            <img src="https://unix-shop.s3.ap-southeast-1.amazonaws.com/me.webp" className="deal2-image deal-image"  alt="Deals"></img>
                             <div className='tag2 tags'>
                                 HOT DEALS
                             </div>
@@ -150,83 +278,44 @@ const Hero = () => {
 
                             {/* ARRIVAL ITEMS */}
                             <div className='arrival-items-mover'>
-                                <div className='arrival-items'>
-                                    <div className='arr-image-outside'>
-                                        <div className='arrival-image ar-im1'></div>
-                                    </div>
-                                    
-                                    <p className='arrival-name'>LUXURY PAPER BAG</p>
-                                    <div className='arrival-price-container'>
-                                        <p className='ar-strike'>₱10.00</p>
-                                        <p className='ar-price'>₱9.99</p>
-                                    </div>
-                                </div>
 
-                                <div className='arrival-items'>
-                                    <div className='arr-image-outside'>
-                                        <div className='arrival-image ar-im2'></div>
-                                    </div>
-                                    
-                                    <p className='arrival-name'>UNIX SPECIAL PARCEL</p>
-                                    <div className='arrival-price-container'>
-                                        <p className='ar-strike'>₱5.00</p>
-                                        <p className='ar-price'>₱3.00</p>
-                                    </div>
-                                </div>
+                                {products.map((product) => {
 
-                                <div className='arrival-items'>
-                                    <div className='arr-image-outside'>
-                                        <div className='arrival-image ar-im3'></div>
-                                    </div>
-                                    
-                                    <p className='arrival-name'>UNIX DURABLE MUG</p>
-                                    <div className='arrival-price-container'>
-                                        <p className='ar-strike'>₱15.00</p>
-                                        <p className='ar-price'>₱10.00</p>
-                                    </div>
-                                </div>
+                                    const base64String = btoa(new Uint8Array(product.img.data.data).reduce(function (data, byte) {
+                                        return data + String.fromCharCode(byte);
+                                    }, '')
+                                    )
 
-                                <div className='arrival-items'>
-                                    <div className='arr-image-outside'>
-                                        <div className='arrival-image ar-im4'></div>
-                                    </div>
-                                    
-                                    <p className='arrival-name'>UNIX TOTE BAG</p>
-                                    <div className='arrival-price-container'>
-                                        <p className='ar-strike'>₱35.00</p>
-                                        <p className='ar-price'>₱25.00</p>
-                                    </div>
-                                </div>
+                                    return (
+                                        <div className='arrival-items' key={product._id}>
+                                            <div className='arr-image-outside' id={product.productName} onClick={addCart}>
+                                                <div className='arrival-image'>
+                                                    <img src={`data:image/webp;base64,${base64String}`} className="arrival-real-image" alt="Product"/>
+                                                </div>
+                                            </div>
+                                            
+                                            <p className='arrival-name'>{product.productName}</p>
+                                            <div className='arrival-price-container'>
+                                                <p className='ar-strike'>₱{product.oldprice}.00</p>
+                                                <p className='ar-price'>₱{product.price}.00</p>
+                                            </div>
+                                        </div>
+                                    )
+  
+                                })}
+                                
 
-                                <div className='arrival-items'>
-                                    <div className='arr-image-outside'>
-                                        <div className='arrival-image ar-im5'></div>
-                                    </div>
-                                    
-                                    <p className='arrival-name'>UNIX PERFUME BOX</p>
-                                    <div className='arrival-price-container'>
-                                        <p className='ar-strike'>₱20.00</p>
-                                        <p className='ar-price'>P15.00</p>
-                                    </div>
-                                </div>
 
-                                <div className='arrival-items'>
-                                    <div className='arr-image-outside'>
-                                        <div className='arrival-image ar-im6'></div>
-                                    </div>
-                                    
-                                    <p className='arrival-name'>UNIX PHONE CASE</p>
-                                    <div className='arrival-price-container'>
-                                        <p className='ar-strike'>₱50.00</p>
-                                        <p className='ar-price'>₱40.00</p>
-                                    </div>
-                                </div>
+
                             </div>
 
                         </div>
                     </section>
                 </div>
             </div>
+            <AnimatePresence>
+                {pop ? addDone : null}
+            </AnimatePresence>
         </>
     )
 }

@@ -6,6 +6,8 @@ import { updateRegister } from "../features/registerSlice";
 const RegEmail = () => {
     const dispatch = useDispatch();
     const updateReg = useSelector((state) => state.updateRegister.value);
+    const err = useSelector((state) => state.errSlice.value);
+
     const emailref = useRef();
 
     const setEmail = () => {
@@ -25,7 +27,7 @@ const RegEmail = () => {
         <>
             <div className='register-email-wrapper'>
                 <p className='email-label primary' onClick={emailRef}>Email:</p>
-                <input type="text" className='email-input input-box' name='email-input' ref={emailref} onChange={setEmail}></input>
+                <input type="text" className='email-input input-box' name='email-input' ref={emailref} onChange={setEmail} style={err.msg === '' ? {border: "1px solid ##626A79"} : {border: "1px solid #EA2525"}}></input>
             </div>
         </>
     )

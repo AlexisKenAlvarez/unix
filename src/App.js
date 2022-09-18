@@ -1,6 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Route, Routes, useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux'
+import { motion, AnimatePresence } from 'framer-motion'
+
+import Axios from 'axios'
+
 
 // STYLES
 import './App.scss'
@@ -9,6 +13,8 @@ import './App.scss'
 import Logo from './images/logo.png'
 import Search from './images/search.svg'
 import Burger from './images/burger.svg'
+import Close from './images/close.svg'
+import Polygon from './images/polygon.svg'
 
 // FOOTER SOC MED IMAGES
 import Fb from './images/footer/001-facebook.svg'
@@ -20,20 +26,34 @@ import Tiktok from './images/footer/016-tiktok.svg'
 import Hero from './components/hero'
 import Login from './components/login'
 import Signup from './components/register'
+import PrivateCart from './privateRoutes/privateCart'
+import About from './components/about'
+import Error from './components/error'
 
 // Reducers
 import { toggleActive } from './features/navSlice.js'
+import { setStatus } from './features/statusSlice'
+import { getItems } from './features/productSlice'
+import { handleCart } from './features/cartSlice'
 
 function App() {
 
   const navigate = useNavigate();
+  Axios.defaults.withCredentials = true;
 
   const dispatch = useDispatch();
   const toggleNav = useSelector((state) => state.toggleNav.value)
+  const user = useSelector((state) => state.statusSlice.value)
+  const products = useSelector((state) => state.prodSlice.value)
+  const navCart = useSelector((state) => state.cartSlice.value)
 
+  // STATES
+  const [cartDrop, setCartDrop] = useState(false)
+  const [side, setSide] = useState(false);
+  const [isLoggedIn, setLoggedIn] = useState(false)
 
-  // TO ACTIVATE NAV BAR
   useEffect(() => {
+      // TO ACTIVATE NAV BAR
     const path = window.location.pathname
 
     if (path === '/login' || path === '/signup') {
@@ -42,18 +62,147 @@ function App() {
       dispatch(toggleActive({isActive: true}))
     }
     
+    if(path === '/cart') {
+      dispatch(handleCart({onCart: true}))
+    } else {
+      dispatch(handleCart({onCart: false}))
+    }
+
+    Axios.get("http://localhost:3001/login").then((response) => {
+      if (response.data?.user) {
+        const clientEmail = response.data.user[0].email
+        setLoggedIn(true)
+
+        Axios.post('http://localhost:3001/products', {email: clientEmail}).then((response) => {
+          const items = response.data.items
+          let itemList = []
+    
+          items.forEach((item) => {
+            itemList.push(item)
+          })
+    
+          dispatch(getItems({items: itemList}))
+        })
+
+      }
+    })
 
   }, [])
+
   
 
-  const redirectLogin = () => {
-    navigate("/login", {replace: true})
-    dispatch(toggleActive({isActive: false}))
+  const toggleCart = () => {
+    if (user.status) {
+      setCartDrop(true)
+    }
+  }
+
+  const toggleCartOut = () => {
+    setCartDrop(false)
+  }
+
+  const handleLogin = () => {
+    console.log(user.status)
+    if (user.status) {
+
+      Axios.post("http://localhost:3001/logout").then((response) => {
+
+      if(response.data.out) {
+        dispatch(setStatus({status: false}))
+        window.location.reload(false);
+        console.log(response.data)
+
+      } else {
+        console.log(response.data)
+      }
+
+      }, [])
+    } else {
+      navigate("/login", {replace: true})
+      dispatch(toggleActive({isActive: false}))
+    }
+  }
+
+  const handleSide = () => {
+    setSide(!side)
   }
 
   const handleHome = () => {
     dispatch(toggleActive({isActive: true}))
     navigate("/", {replace: true})
+  }
+
+  const cartVariants = {
+    visible: {
+      scale: 1,
+      originX: "95%",
+      originY: "0%",
+      transform: {
+        duration: 0.5
+      }
+    },
+    hidden: {
+      scale: 0,
+      originX: "95%",
+      originY: "0%",
+      transform: {
+        duration: 0.5
+      }
+    }
+  }
+
+  const navigateCart = () => {
+    navigate("/cart", {replace: true})
+  }
+
+  const navigateCartSide = () => {
+    navigate("/cart", {replace: true})
+    setSide(!side)
+
+  }
+
+  const dropdownCart = (
+    <motion.div className='cart-dropdown' variants={cartVariants} initial="hidden" animate="visible" exit="hidden"  onMouseOver={toggleCart} onMouseOut={toggleCartOut}>
+      <img src={Polygon} className="polygon-nav" alt="Polygon"></img>
+      <div className='hover-cart' onClick={navigateCart}></div>
+      <p className='recently-added'>Recently Added</p>
+
+      <div className='products-container'>
+        {products.items.map((items) => {
+
+          const base64String = btoa(new Uint8Array(items.img.data.data).reduce(function (data, byte) {
+            return data + String.fromCharCode(byte);
+          }, '')
+          )
+
+          return (
+            <div className='user-items' key={items._id}>
+              <div className='product-drop-img-container'>
+                <img src={`data:image/webp;base64,${base64String}`}/>
+              </div>
+              <div className='productName'>{items.productName}</div>
+              <div className='productPrice'>₱{items.total}</div>
+            </div>
+          )
+        })}
+        
+      </div>
+    </motion.div>
+  )
+
+  const handleAbout = () => {
+    navigate('/about',{replace: true})
+    
+  }
+
+  const handleAboutSide = () => {
+    navigate('/about',{replace: true})
+    setSide(!side)
+
+  }
+
+  const handle404 = () => {
+    navigate('/404', {replace: true})
   }
 
   const navBar = (
@@ -68,14 +217,19 @@ function App() {
             </div>
           </form>
         </div>
-        <img src={Burger} className='burger' alt="Menu"></img>
-        <div className='cart'></div>
+        <img src={Burger} className='burger' alt="Menu" onClick={handleSide}></img>
+        <div className='cart' onMouseOver={toggleCart} style={navCart.onCart ? {display: "none"} : {display: "block"}}></div>
 
         <ul className='nav-ul'>
-          <li className='wishlist'>WISHLIST</li>
-          <li className='my-cart'>MY CART</li>
-          <li className='login' onClick={redirectLogin}>LOGIN</li>
+          <li className='wishlist' onClick={handleAbout}>ABOUT US</li>
+          <li className='my-cart' onClick={handle404}>HELP</li>
+          <li className='login' onClick={handleLogin}>{user.status ? "LOGOUT" : "LOGIN"}</li>
         </ul>
+
+        <AnimatePresence>
+          {cartDrop ? dropdownCart : null}
+        </AnimatePresence>
+
       </div>
       <div className='line'></div>
     </nav>
@@ -102,16 +256,16 @@ function App() {
 
             <div className='footer-list'>
               <ul className='footer-ul1'> 
-                <li className='footer-items'>About us</li>
-                <li className='footer-items'>Contact us</li>
-                <li className='footer-items'>Services</li>
+                <li className='footer-items' onClick={handleAbout}>About us</li>
+                <li className='footer-items' onClick={handle404}>Contact us</li>
+                <li className='footer-items' onClick={handle404}>Services</li>
 
               </ul> 
 
               <ul className='footer-ul2'>
-                <li className='footer-items'>Events</li>
-                <li className='footer-items'>Privacy Policy</li>
-                <li className='footer-items'>Terms of use</li>
+                <li className='footer-items' onClick={handle404}>Events</li>
+                <li className='footer-items' onClick={handle404}>Privacy Policy</li>
+                <li className='footer-items' onClick={handle404}>Terms of use</li>
               </ul>
             </div>
 
@@ -132,22 +286,101 @@ function App() {
     </>
   )
 
+  const menuVariants = {
+    shownMain: {
+      x: "-100%",
+      transition: {
+        delay: 0.25,
+        ease: "easeInOut",
+
+        duration: 0.7
+      }
+    },
+
+    shownSlide: {
+      x: "-100%",
+      transition: {
+        delay: 0.05,
+        ease: "easeInOut",
+        duration: 0.7
+      }
+
+    },
+    hidden: {
+      x: "100%",
+    },
+
+    exitSlide: {
+      x: "100%",
+      transition:{
+        delay: 0.25,
+        ease: "easeInOut",
+        duration: 0.7
+      }
+    },
+
+    exitMain: {
+      x: "100%",
+      transition:{
+        delay: 0.05,
+        ease: "easeInOut",
+        duration: 0.7
+      }
+    }
+
+
+  }
+
+  const sideMenu = (
+    <>
+      <motion.div className='sideMenu-wrapper' variants={menuVariants} initial="hidden" >
+        <motion.div 
+        variants={menuVariants} initial="hidden" animate={side ? "shownSlide" : "exitSlide"} exit="exitSlide"
+        className='sideMenu-slider'>
+          <p className='unix-sidemenu'>UNIX</p>
+        </motion.div>
+
+        <motion.div 
+        variants={menuVariants} initial="hidden" animate={side ? "shownMain" : "exitMain"} exit="exitMain"
+        className='sideMenu-container'>
+          <img className='side-close' alt="close" src={Close} onClick={handleSide}></img>
+          <ul className='sidemenu-ul'>
+            <li className='side-about' onClick={handleAboutSide}>About us</li>
+            <li className='side-cart' onClick={navigateCartSide}>My Cart</li>
+            <li className='side-help'onClick={() => {console.log("HELP")}}>Help</li>
+
+            <li className='side-login' onClick={handleLogin}>{user.status ? "LOGOUT" : "LOGIN"}</li>
+          </ul>
+        </motion.div>
+      </motion.div>
+    </>
+  )
+
+
+
+
   return (
     <>
       <div className='main-div'>
         {toggleNav.isActive ? navBar : null}
+        {sideMenu}
         
-        <Routes>
-          <Route exact path="/" element={<Hero/>}></Route>
-          <Route exact path="/login" element={<Login/>}></Route>
-          <Route exact path="/signup" element={<Signup/>}></Route>
 
-        </Routes>
+        <AnimatePresence>
+        
+          <Routes>
+            <Route exact path="/" element={<Hero/>}></Route>
+            <Route exact path="/login" element={<Login/>}></Route>
+            <Route exact path="/signup" element={<Signup/>}></Route>
+            <Route exact path="/cart" element={<PrivateCart/>}></Route>
+            <Route exact path="/about" element={<About/>}></Route>
+            <Route exact path="*" element={<Error/>}></Route>
+
+          </Routes>
+        </AnimatePresence>
 
         {footer}
       </div>
-
-
     </>
   );
   

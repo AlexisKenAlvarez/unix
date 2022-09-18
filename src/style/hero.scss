@@ -16,7 +16,7 @@ $darkgrey: #626A79;
     overflow-y: hidden;
 
     .hero-container {
-        max-width: 1400px;
+        max-width: 500px;
         height: 100%;
         margin: 0 auto;
 
@@ -239,7 +239,8 @@ $darkgrey: #626A79;
                         }
                     }
     
-                    @media screen and (min-width: 673px) {
+                    @media screen and (min-width: 762px) {
+
                         .hero-container {
                             .hero-headings {
                                 margin-top: 4rem;
@@ -311,6 +312,7 @@ $darkgrey: #626A79;
                         }
 
                         .page3-container {
+
                             .page3-headings {
                                 margin-top: 3rem;
 
@@ -338,44 +340,6 @@ $darkgrey: #626A79;
                             }
                             .page3-image {
                                 width: 21rem;
-                                margin: 0;
-                                right: 1rem;
-                                left: auto;
-                            }
-                        }
-                    }
-    
-                    @media screen and (min-width: 775px) {
-                        .hero-container {
-                            .hero-headings {
-                                margin: 2.5rem;
-                            }
-                            .hero-image {
-                                width: 60vh;
-                                margin: 0;
-                                right: 1rem;
-                                left: auto;
-                            }
-                        }
-    
-                        .page2-container {
-                            .page2-headings {
-                                margin: 2.5rem;
-                            }
-                            .page2-image {
-                                width: 60vh;
-                                margin: 0;
-                                right: 1rem;
-                                left: auto;
-                            }
-                        }
-
-                        .page3-container {
-                            .page3-headings {
-                                margin: 2.5rem;
-                            }
-                            .page3-image {
-                                width: 60vh;
                                 margin: 0;
                                 right: 1rem;
                                 left: auto;
@@ -687,7 +651,7 @@ $darkgrey: #626A79;
             margin-top: 2rem;
             height: auto;
             display: grid;
-            grid-template-rows: repeat(3, minmax(10.5rem, 35vw));
+            grid-template-rows: repeat(3, 10.5rem);
             row-gap: 1.7rem;
 
             .deals {
@@ -758,50 +722,7 @@ $darkgrey: #626A79;
                 .tag3 {
                     background-color: #D7B68E;
                 }
-                @media screen and (min-width: 600px) {
-                    .deal-image {
-                        width: 12rem;
-                        right: 4rem;
-
-                        @media screen and (min-width: 700px) {
-                            width: 12rem;
-                        }
-                    }
-    
-                    .under {
-                        margin-left: 1rem;
-                        margin-top: -0.5rem;
-                        margin-left: 3.5%;
-                        font-size: 1.2rem;
-                        
-                    }
-    
-                    .deal-price {
-                        margin-top: -1.6rem;
-                        font-size: 2.5rem;
-                        margin-left: 3.5%;
-                    }
-    
-                    .shopnow {
-                        margin-top: -1.8rem;
-                        margin-left: 1rem;
-                        font-weight: 300;
-                        text-transform: capitalize;
-                        position: relative;
-                        width: 6rem;
-                        margin-left: 3.5%;
-                        font-size: 1.1rem;
-                    }
-
-                    .tags {
-                        width: 8rem;
-                        height: 2rem;
-                        padding-left: 1rem;
-                        margin: 1rem;
-                        margin-top: 2.5%;
-                        margin-left: 3.5%;
-                    }
-                }
+                
             }
 
             .deal1 {
@@ -813,7 +734,7 @@ $darkgrey: #626A79;
             }
 
             .deal3 {
-                background-image: url('../images/shirts.png');
+                background-image: url('https://unix-shop.s3.ap-southeast-1.amazonaws.com/shirts.webp');
                 background-size: cover;
                 background-repeat: no-repeat;
                 background-position: center;
@@ -852,6 +773,7 @@ $darkgrey: #626A79;
 
                     .shopnow {
                         font-size: 0.9rem;
+                        margin-top: -0.2rem;
                     }
                 }
             }
@@ -955,26 +877,15 @@ $darkgrey: #626A79;
                                 background-repeat: no-repeat;
                                 cursor: pointer;
                                 transition: 0.2s all ease-in-out;
+
+
+                                .arrival-real-image {
+                                    object-fit: cover;
+                                    width: 100%;
+                                    height: 100%;
+                                }
                             }
-    
-                            .ar-im1 {
-                                background-image: url('../images/newproducts/box.png')
-                            }
-                            .ar-im2 {
-                                background-image: url('../images/newproducts/parcel.png')
-                            }
-                            .ar-im3 {
-                                background-image: url('../images/newproducts/mug.png')
-                            }
-                            .ar-im4 {
-                                background-image: url('../images/newproducts/ecobag.png')
-                            }
-                            .ar-im5{
-                                background-image: url('../images/newproducts/perfume.png')
-                            }
-                            .ar-im6 {
-                                background-image: url('../images/newproducts/phonecase.png')
-                            }
+
     
                         }
                        
@@ -1020,6 +931,10 @@ $darkgrey: #626A79;
 
 
             }
+        }
+
+        @media screen and (min-width: 762px) {
+            max-width: 1400px;
         }
     }
 }
@@ -1153,4 +1068,81 @@ div::-webkit-scrollbar-track {
     right: -5px;
     top: -3px;
     position: absolute;
+}
+
+.cart-bg {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 99999;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .check-container {
+        width: 80%;
+        height: 16rem;
+        background-color: white;
+        color: #2E838E;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        transform: translateY(60%);
+        top: auto;
+        bottom: auto;
+        margin-inline: auto;
+        display: block;
+        left: 0;
+        right: 0;
+        border-radius: 1rem;
+
+        .cart-check {
+            width: 7rem;
+            margin: 0 auto;
+            display: block;
+            margin-top: 2rem;
+        }
+
+        .cart-text {
+            text-align: center;
+            font-size: 1.2rem;
+            width: 13rem;
+            margin: 0 auto;
+        }
+    }
+
+    @media screen and (min-width: 660px) {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .check-container {
+            width: 60%;
+            max-width: 400px;
+            height: 20rem;
+            border-radius: 1rem;
+            transform: translateY(0%);
+
+            .cart-check {
+                margin-top: 2rem;
+                width: 9rem;
+            }
+    
+            .cart-text {
+                text-align: center;
+                font-size: 1.5rem;
+                width: 16rem;
+                margin: 0 auto;
+            }
+        }
+
+
+    }
 }

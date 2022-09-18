@@ -27,7 +27,7 @@ const Done = () => {
 
                 <div className="done-password-div">
                     <p className="password-label-done">Password: </p>
-                    <input type={shown ? "text" : "password"} name="password-done" className="done-password" disabled="true" value={password}></input>
+                    <input type={shown ? "text" : "password"} name="password-done" className="done-password" disabled={true} value={password}></input>
                 </div>
                 
                 <p className="done-show" onClick={togglePassword}>Show password</p>

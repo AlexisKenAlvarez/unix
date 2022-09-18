@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+$poppins: 'Poppins', sans-serif;
+$playfair: 'Playfair Display', serif;
+$space: 'Space Grotesk', sans-serif;
+
+.error-wrapper {
+    height: 80vh;
+    background-color: white;
+    margin-top: 8.5rem;
+    font-family: $poppins;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .error-container {
+        width: 90%;
+        margin: 0 auto;
+        display: grid;
+        max-width: 900px;
+
+
+        .error-image {
+            margin-top: 1rem;
+            width: 12rem;
+            justify-self: center;
+        }
+
+        .error-texts {
+            font-family: $space;
+            width: 80%;
+            max-width: 400px;
+            margin: 0 auto;
+            & > p {
+                margin: 0;
+            }
+
+            .error-404 {
+                font-weight: 700;
+                margin-bottom: 1rem;
+            }
+
+            & > h1 {
+                margin: 0;
+                font-size: 3rem;
+                font-weight: 700;
+            }
+
+            .error-message {
+                font-size: 16px;
+                margin-top: 0.5rem;
+            }
+
+            .error-home {
+                background-color: #3A3A3A;
+                width: 120px;
+                height: 45px;
+                color: white;
+                display: flex;
+                font-size: 12px;
+                justify-content: center;
+                align-items: center;
+                border-radius: 25px;
+                margin-top: 1.5rem;
+                box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+                letter-spacing: 2.5px;
+                font-family: 'Roboto', sans-serif;
+                cursor: pointer;
+                overflow: hidden;
+                transition: 0.5s ease-in-out;
+                position: relative;
+
+                & > p {
+                    position: relative;
+                    z-index: 2;
+                }
+            
+            }
+        }
+
+
+
+        @media screen and (min-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: 
+            "errtxt errimg";
+
+            .error-image {
+                grid-area: errimg;
+                width: 20rem;
+
+                @media screen and (min-width: 1000px) {
+                    width: 26rem;
+                }
+            }
+
+            .error-texts {
+                grid-area: errtxt;
+                width: 100%;
+                margin-top: 3rem;
+
+                @media screen and (min-width: 1000px) {
+                    margin-top: 6rem;
+
+                    .error-404 {
+                        font-size: 17px;
+                    }
+        
+                    & > h1 {
+                        font-size: 3.5rem;
+                    }
+        
+                    .error-message {
+                        font-size: 17px;
+                    }
+
+                    .error-home {
+                        width: 125px;
+                        height: 45px;
+                        font-size: 12px;
+                        margin-top: 1.9rem;
+                        letter-spacing: 2.5px;
+                    
+                    }
+                }
+            }
+        }
+    }
+}
+
+.error-home:before {
+    content: '';
+    display: block;
+    width: 150px;
+    height: 60px;
+    background-color: #79C7D1;
+    position: absolute;
+    transform: translateY(-90%);
+    transition: all 0.2s ease-in-out;
+}
+
+.error-home:hover:before {
+    transform: translateY(0%);
+}

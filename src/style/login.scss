@@ -24,10 +24,9 @@ $poppins: 'Poppins', sans-serif;
                 width: 9rem;
                 margin-top: 1rem;
                 margin-left: 1rem;
+                cursor: pointer;
             }
         }
-
-
     }
 
     .login-hero-outer {
@@ -92,9 +91,11 @@ $poppins: 'Poppins', sans-serif;
                     justify-content: space-around;
                     margin-top: 0.5rem;
                     margin-left: 0rem;
+                    cursor: pointer;
     
                     .arrow-back {
                         width: 3rem;
+                        
                     }
                 }
     
@@ -106,6 +107,16 @@ $poppins: 'Poppins', sans-serif;
                 }
     
                 .login-form {
+                    .error-handler {
+                        color: #EA2525;
+                        margin: 0;
+                        padding: 0;
+                        position: relative;
+                        left: 1.8rem;
+                        top: 0rem;
+                        font-family: $poppins;
+                    }
+
                     .login-email-wrapper {
                         margin-top: 2rem !important;
                         width: 100%;
@@ -123,7 +134,7 @@ $poppins: 'Poppins', sans-serif;
                     }
     
                     .login-password-wrapper {
-                        margin-top: 1rem !important;
+                        margin-top: -2rem;
                         width: 100%;    
                         margin: 0 auto;
                         position: relative;
@@ -157,7 +168,7 @@ $poppins: 'Poppins', sans-serif;
                         width: 19.5rem;
                         height: 3rem;
                         font-size: 1.4rem;
-                        margin-top: 2rem;
+                        margin-top: 1rem;
                         background-color: #79C7D1;
                         color: white;
                         border: none;
@@ -195,6 +206,7 @@ $poppins: 'Poppins', sans-serif;
                     
                     .arrow-container {
                         display: none;
+                        cursor: pointer;
                     }
     
                     .login-logo-inner {
@@ -252,9 +264,8 @@ $poppins: 'Poppins', sans-serif;
     font-family: $poppins;
 }
 
-.input-box {
+.input-box-login {
     outline: none;
-    border: 1px solid #626A79;
     padding: 0.5rem;
     color: #626A79;
     height: 1.7rem;
@@ -265,4 +276,12 @@ $poppins: 'Poppins', sans-serif;
 
 .poppins {
     font-family: $poppins;
+}
+
+.error-handler:before {
+    content: url('../images/register/warning.svg');
+    left: -1.5rem;
+    top: 0.2rem;
+    display: block;
+    position: absolute;
 }
