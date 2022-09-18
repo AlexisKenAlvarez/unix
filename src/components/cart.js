@@ -121,6 +121,7 @@ const Cart = () => {
   const handleQuantity = (e) => {
     const action = e.currentTarget.id
     const productName = e.currentTarget.parentNode.getAttribute("data-key");
+    setLoading(true)
 
     Axios.post("https://unix.herokuapp.com/handleQuantity", {action: action, productName: productName}).then((response) => {
 
@@ -140,7 +141,8 @@ const Cart = () => {
           // GET PRODUCTS AND STORE IT TO PRODUCTS SLICE
           Axios.post("https://unix.herokuapp.com/products").then((response) => {
             dispatch(getItems({items: response.data.items}))
-            
+            setLoading(false)
+    
           })
     })
   }
