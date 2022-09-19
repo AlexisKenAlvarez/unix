@@ -170,9 +170,13 @@ const Hero = () => {
     )
 
     if (loader === false) {
-        <AnimatePresence>
-            <Loader/>
-        </AnimatePresence>
+        return (
+            <AnimatePresence>
+                <Loader/>
+            </AnimatePresence>
+        )
+
+
     }
 
     return (
