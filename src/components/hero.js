@@ -80,6 +80,7 @@ const Hero = () => {
 
         Axios.get("https://unix.herokuapp.com/getproducts").then((response) => {
             setProducts(response.data.Products)
+            console.log("Got products")
         })
 
     }, [])
@@ -107,15 +108,10 @@ const Hero = () => {
     }
 
     const renderCart = (email) => {
-        Axios.post('https://unix.herokuapp.com/products', {email: email}).then((response) => {
+        Axios.post('https://unix.herokuapp.com/products').then((response) => {
             const items = response.data.items
-            let itemList = []
 
-            items.forEach((item) => {
-                itemList.push(item)
-            })
-
-            dispatch(getItems({items: itemList}))
+            dispatch(getItems({items: items}))
         })
     }
 
@@ -290,7 +286,7 @@ const Hero = () => {
                                         <div className='arrival-items' key={product._id}>
                                             <div className='arr-image-outside' id={product.productName} onClick={addCart}>
                                                 <div className='arrival-image'>
-                                                    <img src="https://unix-shop.s3.ap-southeast-1.amazonaws.com/products/box.webp" className="arrival-real-image" alt="Product"/>
+                                                    <img src={`data:image/webp;base64,${base64String}`} className="arrival-real-image" alt="Product"/>
                                                 </div>
                                             </div>
                                             
