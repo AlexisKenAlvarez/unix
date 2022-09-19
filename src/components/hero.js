@@ -37,7 +37,12 @@ const Hero = () => {
     const [pop, setPop] = useState(false)
     const [email, setEmail] = useState('')
     const [products, setProducts] = useState([]);
-    const [loader, setLoader] = useState(false)
+    const [loader, setLoader] = useState(true)
+
+    const { events } = useDraggable(ref, {
+        isMounted: true, 
+        applyRubberBandEffect: true, // activate rubber band effect
+      });
 
     const slide = useSelector((state) => state.nextSlide.value)
     const dispatch = useDispatch();
@@ -77,8 +82,8 @@ const Hero = () => {
 
         Axios.get("https://unix.herokuapp.com/getproducts").then((response) => {
             setProducts(response.data.Products)
-            console.log("Added loader")
-            setLoader(true)
+            console.log("Got products")
+            setLoader(false)
         })
 
     }, [])
@@ -164,15 +169,6 @@ const Hero = () => {
         </>
     )
 
-    if (!loader) {
-        return (
-            <AnimatePresence>
-                <Loader key="loader"/>
-            </AnimatePresence>
-        )
-
-
-    }
 
     return (
 
@@ -276,7 +272,7 @@ const Hero = () => {
                         <p className='new'>NEW ARRIVALS</p>
                         <div className='arrival-line'></div>
 
-                        <div className='arrival-items-container'>
+                        <div className='arrival-items-container' {...events} ref={ref}>
 
                             {/* ARRIVAL ITEMS */}
                             <div className='arrival-items-mover'>
@@ -317,6 +313,7 @@ const Hero = () => {
             </div>
             <AnimatePresence>
                 {pop ? addDone : null}
+                {loader ? <Loader key="loader"/> : null}
             </AnimatePresence>
         </>
     )
