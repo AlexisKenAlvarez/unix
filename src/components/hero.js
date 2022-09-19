@@ -39,11 +39,6 @@ const Hero = () => {
     const [products, setProducts] = useState([]);
     const [loader, setLoader] = useState(false)
 
-    const { events } = useDraggable(ref, {
-        isMounted: true, 
-        applyRubberBandEffect: true, // activate rubber band effect
-      });
-
     const slide = useSelector((state) => state.nextSlide.value)
     const dispatch = useDispatch();
     Axios.defaults.withCredentials = true;
@@ -169,7 +164,7 @@ const Hero = () => {
         </>
     )
 
-    if (loader === false) {
+    if (!loader) {
         return (
             <AnimatePresence>
                 <Loader/>
@@ -281,7 +276,7 @@ const Hero = () => {
                         <p className='new'>NEW ARRIVALS</p>
                         <div className='arrival-line'></div>
 
-                        <div className='arrival-items-container' {...events} ref={ref}>
+                        <div className='arrival-items-container'>
 
                             {/* ARRIVAL ITEMS */}
                             <div className='arrival-items-mover'>
