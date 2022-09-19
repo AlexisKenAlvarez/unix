@@ -169,7 +169,7 @@ const Hero = () => {
         </>
     )
 
-    if (!loader) {
+    if (loader === false) {
         <AnimatePresence>
             <Loader/>
         </AnimatePresence>
