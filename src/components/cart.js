@@ -27,6 +27,7 @@ const Cart = () => {
   const checkOutProduct = useSelector((state) => state.cartSlice.checkOut)
   const isChecked = useSelector((state) => state.cartSlice.checked)
 
+
   const products = useSelector((state) => state.prodSlice.value)
 
   const [checkedAll, setCheckedAll] = useState(false)
@@ -127,13 +128,18 @@ const Cart = () => {
     Axios.post("https://unix.herokuapp.com/handleQuantity", {action: action, productName: productName}).then((response) => {
 
       if (action === "add") {
-        dispatch(setTotal({value: totalPrice.value + response.data.price})) // ADD VALUE TO THE TOTAL
+        if (isChecked.value > 0) {
+          dispatch(setTotal({value: totalPrice.value + response.data.price})) // ADD VALUE TO THE TOTAL
+        }
       } else if (action === "minus") {
         if (response.data?.Action === "Delete") { // IF THE REQUEST SENDS A DElETE ACTION, HAPPENS WHEN QUANTITY IS ONLY 1 AND YOU DECREASE QUANTITY
           dispatch(toggleVisible({visible: true}))
           dispatch(showAnimate({ state: false }))
         } else {
-          dispatch(setTotal({value: totalPrice.value - response.data.price})) // MINUS VALUE FROM THE TOTAL
+          if (isChecked.value > 0) {
+            dispatch(setTotal({value: totalPrice.value - response.data.price})) // MINUS VALUE FROM THE TOTAL
+          }
+          
         }
         
       }
