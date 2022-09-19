@@ -20,5 +20,11 @@ $darkgrey: #626A79;
         height: 100%;
         width: 100%;
         background-color: #A9E8F0;
+        z-index: 1;
+    }
+
+    .loader-image {
+        position: relative;
+        z-index: 2;
     }
 }
