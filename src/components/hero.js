@@ -290,7 +290,7 @@ const Hero = () => {
                                         <div className='arrival-items' key={product._id}>
                                             <div className='arr-image-outside' id={product.productName} onClick={addCart}>
                                                 <div className='arrival-image'>
-                                                    <img src={`data:image/webp;base64,${base64String}`} className="arrival-real-image" alt="Product"/>
+                                                    <img src="https://unix-shop.s3.ap-southeast-1.amazonaws.com/products/box.webp" className="arrival-real-image" alt="Product"/>
                                                 </div>
                                             </div>
                                             
