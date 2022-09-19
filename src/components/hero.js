@@ -39,10 +39,6 @@ const Hero = () => {
     const [products, setProducts] = useState([]);
     const [loader, setLoader] = useState(true)
 
-    const { events } = useDraggable(ref, {
-        isMounted: true, 
-        applyRubberBandEffect: true, // activate rubber band effect
-      });
 
     const slide = useSelector((state) => state.nextSlide.value)
     const dispatch = useDispatch();
@@ -272,7 +268,7 @@ const Hero = () => {
                         <p className='new'>NEW ARRIVALS</p>
                         <div className='arrival-line'></div>
 
-                        <div className='arrival-items-container' {...events} ref={ref}>
+                        <div className='arrival-items-container'>
 
                             {/* ARRIVAL ITEMS */}
                             <div className='arrival-items-mover'>
