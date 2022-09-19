@@ -309,7 +309,7 @@ const Hero = () => {
             </div>
             <AnimatePresence>
                 {pop ? addDone : null}
-                {loader ? <Loader key="loader"/> : null}
+                {loader ? null : <Loader key="loader"/>}
             </AnimatePresence>
         </>
     )
