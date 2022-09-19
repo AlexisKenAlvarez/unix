@@ -77,7 +77,7 @@ const Hero = () => {
 
         Axios.get("https://unix.herokuapp.com/getproducts").then((response) => {
             setProducts(response.data.Products)
-            console.log("Got products")
+            console.log("Added loader")
             setLoader(true)
         })
 
