@@ -167,7 +167,7 @@ const Hero = () => {
     if (!loader) {
         return (
             <AnimatePresence>
-                <Loader/>
+                <Loader key="loader"/>
             </AnimatePresence>
         )
 
