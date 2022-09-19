@@ -27,6 +27,7 @@ import Cart from '../images/animation_300_l7nbf08m.gif'
 import ScrollToTop from '../ScrollToTop';
 import Axios from 'axios';
 import { Navigate } from 'react-router-dom';
+import Loader from './loader';
 
 const Hero = () => {
     const navigate = useNavigate()
@@ -36,6 +37,7 @@ const Hero = () => {
     const [pop, setPop] = useState(false)
     const [email, setEmail] = useState('')
     const [products, setProducts] = useState([]);
+    const [loader, setLoader] = useState(false)
 
     const { events } = useDraggable(ref, {
         isMounted: true, 
@@ -81,6 +83,7 @@ const Hero = () => {
         Axios.get("https://unix.herokuapp.com/getproducts").then((response) => {
             setProducts(response.data.Products)
             console.log("Got products")
+            setLoader(true)
         })
 
     }, [])
@@ -166,7 +169,11 @@ const Hero = () => {
         </>
     )
 
-
+    if (!loader) {
+        <AnimatePresence>
+            <Loader/>
+        </AnimatePresence>
+    }
 
     return (
 

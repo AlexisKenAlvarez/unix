@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+$poppins: 'Poppins', sans-serif;
+$blue: #79C7D1;
+$grey: #DADADA;
+$darkgrey: #626A79;
+
+.loader-container {
+    background-color: #A9E8F0;
+    position: fixed;
+    z-index: 999999999;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

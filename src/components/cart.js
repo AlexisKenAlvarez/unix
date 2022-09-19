@@ -41,6 +41,14 @@ const Cart = () => {
 
   Axios.defaults.withCredentials = true
 
+  componentDidMount() {
+    // GET PRODUCTS AND STORE IT TO PRODUCTS SLICE
+    Axios.post("https://unix.herokuapp.com/products").then((response) => {
+      dispatch(getItems({items: response.data.items}))
+      
+    })
+  }
+
   useEffect(() => {
     const path = window.location.pathname
 
@@ -52,11 +60,7 @@ const Cart = () => {
       dispatch(handleCart({ onCart: false }))
     }
 
-    // GET PRODUCTS AND STORE IT TO PRODUCTS SLICE
-    Axios.post("https://unix.herokuapp.com/products").then((response) => {
-      dispatch(getItems({items: response.data.items}))
-      
-    })
+
 
   }, [])
   
