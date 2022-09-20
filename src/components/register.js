@@ -91,8 +91,6 @@ const Register = () => {
                 console.log(updateReg.password)
                 setPage((current) => current + 1)
                 dispatch(setErr({msg: ''}))
-
-
             }
         } else if (page === 3) {
             console.log("in 3")
@@ -112,13 +110,17 @@ const Register = () => {
                     }
                 })
             }
-
-
-
-
         }
 
     }
+
+    useEffect(() => {
+      return () => {
+        dispatch(setErr({msg: ''}))
+
+      }
+    }, [])
+    
 
     const registerDone = (
         <>
