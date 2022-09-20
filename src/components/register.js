@@ -117,6 +117,7 @@ const Register = () => {
     useEffect(() => {
       return () => {
         dispatch(setErr({msg: ''}))
+        dispatch(updateRegister({email: '', password: ''}))
 
       }
     }, [])
