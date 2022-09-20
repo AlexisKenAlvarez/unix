@@ -80,6 +80,7 @@ const Register = () => {
                 dispatch(setErr({msg: 'Password is too weak!'}))
 
             }else {
+                console.log(updateReg.password)
                 setPage((current) => current + 1)
                 dispatch(setErr({msg: ''}))
 
