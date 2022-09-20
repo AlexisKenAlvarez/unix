@@ -47,6 +47,10 @@ const Form = () => {
     useEffect(() => {
         dispatch(toggleActive({isActive: false}))
         emailref.current.focus();
+
+        return () => {
+            dispatch(toggleActive({isActive: true}))
+        }
     }, [])
 
     const emailRef = () => {

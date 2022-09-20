@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Axios from 'axios'
@@ -38,6 +38,19 @@ const Register = () => {
     const [enabled, setEnabled] = useState(true)
 
     const navigate = useNavigate()
+
+    useEffect(() => {
+        dispatch(toggleActive({isActive: false}))
+
+      return () => {
+        dispatch(setErr({msg: ''}))
+        dispatch(updateRegister({email: '', password: ''}))
+
+
+        dispatch(toggleActive({isActive: true}))
+
+      }
+    }, [])
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -114,14 +127,7 @@ const Register = () => {
 
     }
 
-    useEffect(() => {
-      return () => {
-        console.log("unmount")
-        dispatch(setErr({msg: ''}))
-        dispatch(updateRegister({email: '', password: ''}))
-
-      }
-    }, [])
+    
     
 
     const registerDone = (
