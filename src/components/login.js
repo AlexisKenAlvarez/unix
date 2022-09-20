@@ -49,7 +49,7 @@ const Form = () => {
         emailref.current.focus();
 
         return () => {
-            console.log("Nav active")
+            console.log("nav active")
             dispatch(toggleActive({isActive: true}))
         }
     }, [])
@@ -144,7 +144,7 @@ const Form = () => {
                                 
                                 {err === '' ? null : errormsg}
                                 <input type="submit" className='login-submit' name="login-submit" value="Login" onClick={handleLogin}></input>
-                                <p className='signup primary' onClick={navSignup}   >Sign up</p>
+                                <p className='signup primary' onClick={navSignup}>Sign up</p>
                             </form>
                         </div>
                     </div>
