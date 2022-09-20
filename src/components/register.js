@@ -52,6 +52,10 @@ const Register = () => {
         return /\S+@\S+\.\S+/.test(email);
     }
 
+    const patternValidation = val => {
+        return /\s/g.test(val);
+      };
+
     const handleNext = () => {
         if (page === 1) {
             if (!isValid(updateReg.email)) {
@@ -74,12 +78,16 @@ const Register = () => {
 
             }
         } else if (page === 2) {
+            let isValid = patternValidation(updateReg.password)
             if (updateReg.password === '') {
                 dispatch(setErr({msg: 'Password cannot be empty!'}))
             } else if (updateReg.password <= 3) {
                 dispatch(setErr({msg: 'Password is too weak!'}))
 
-            }else {
+            } else if (!isValid) {
+                dispatch(setErr({msg: 'Empty spaces are not allowed.'}))
+
+            } else {
                 console.log(updateReg.password)
                 setPage((current) => current + 1)
                 dispatch(setErr({msg: ''}))
