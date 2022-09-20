@@ -78,13 +78,13 @@ const Register = () => {
 
             }
         } else if (page === 2) {
-            let isValid = patternValidation(updateReg.password)
+            let hasSpace = patternValidation(updateReg.password)
             if (updateReg.password === '') {
                 dispatch(setErr({msg: 'Password cannot be empty!'}))
             } else if (updateReg.password <= 3) {
                 dispatch(setErr({msg: 'Password is too weak!'}))
 
-            } else if (!isValid) {
+            } else if (hasSpace) {
                 dispatch(setErr({msg: 'Empty spaces are not allowed.'}))
 
             } else {
