@@ -10,6 +10,8 @@ import '../style/error.scss'
 
 // SLICE
 import { setStatus } from '../features/statusSlice'
+import { toggleActive } from '../features/navSlice.js'
+
 
 
 const Error = () => {
@@ -24,6 +26,8 @@ const Error = () => {
     }
 
     useEffect(() => {
+        dispatch(toggleActive({isActive: true}))
+
         Axios.get("https://unix.herokuapp.com/login").then((response) => {
             if (response.data?.user) {
                 dispatch(setStatus({status: true}))

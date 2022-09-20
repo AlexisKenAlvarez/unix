@@ -13,6 +13,8 @@ import Gmail from '../images/about/Gmail.svg'
 // COMPONENTS
 import { setStatus } from '../features/statusSlice'
 import ScrollToTop from '../ScrollToTop'
+import { toggleActive } from '../features/navSlice.js'
+
 
 const About = () => {
     Axios.defaults.withCredentials = true
@@ -20,6 +22,8 @@ const About = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
+        dispatch(toggleActive({isActive: true}))
+
         Axios.get("https://unix.herokuapp.com/login").then((response) => {
             if (response.data?.user) {
                 dispatch(setStatus({status: true}))
