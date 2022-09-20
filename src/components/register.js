@@ -21,6 +21,7 @@ import Done from '../components/done'
 
 // SLICES
 import { toggleActive } from '../features/navSlice.js'
+import { updateRegister } from "../features/registerSlice";
 import { setErr } from '../features/errSlice'
 
 const Register = () => {
