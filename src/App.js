@@ -101,8 +101,9 @@ function App() {
     setCartDrop(false)
   }
 
-  const handleLogin = () => {
+  const handleLogin = (e) => {
     console.log(user.status)
+    const id = e.currentTarget.id
     if (user.status) {
 
       Axios.post("https://unix.herokuapp.com/logout").then((response) => {
@@ -118,6 +119,9 @@ function App() {
 
       }, [])
     } else {
+      if (id === 'login') {
+        setSide(!side)
+      }
       navigate("/login", {replace: true})
       dispatch(toggleActive({isActive: false}))
     }
@@ -151,15 +155,14 @@ function App() {
     }
   }
 
-  const navigateCart = () => {
+  const navigateCart = (e) => {
+    if (e.currentTarget.id === "sidecart") {
+      setSide(!side)
+    }
     navigate("/cart", {replace: true})
   }
 
-  const navigateCartSide = () => {
-    navigate("/cart", {replace: true})
-    setSide(!side)
 
-  }
 
   const dropdownCart = (
     <motion.div className='cart-dropdown' variants={cartVariants} initial="hidden" animate="visible" exit="hidden"  onMouseOver={toggleCart} onMouseOut={toggleCartOut}>
@@ -190,18 +193,20 @@ function App() {
     </motion.div>
   )
 
-  const handleAbout = () => {
+  const handleAbout = (e) => {
+    if (e.currentTarget.id === "sideabout") {
+      setSide(!side)
+    }
+
     navigate('/about',{replace: true})
     
   }
 
-  const handleAboutSide = () => {
-    navigate('/about',{replace: true})
-    setSide(!side)
 
-  }
-
-  const handle404 = () => {
+  const handle404 = (e) => {
+    if (e.currentTarget.id === "sidehelp") {
+      setSide(!side)
+    }
     navigate('/404', {replace: true})
   }
 
@@ -345,11 +350,11 @@ function App() {
         className='sideMenu-container'>
           <img className='side-close' alt="close" src={Close} onClick={handleSide}></img>
           <ul className='sidemenu-ul'>
-            <li className='side-about' onClick={handleAboutSide}>About us</li>
-            <li className='side-cart' onClick={navigateCartSide}>My Cart</li>
-            <li className='side-help'onClick={() => {console.log("HELP")}}>Help</li>
+            <li className='side-about' id="sideabout" onClick={handleAbout}>About us</li>
+            <li className='side-cart' id="sidecart" onClick={navigateCart}>My Cart</li>
+            <li className='side-help' id="sidehelp" onClick={handle404}>Help</li>
 
-            <li className='side-login' onClick={handleLogin}>{user.status ? "LOGOUT" : "LOGIN"}</li>
+            <li className='side-login' id="login" onClick={handleLogin}>{user.status ? "LOGOUT" : "LOGIN"}</li>
           </ul>
         </motion.div>
       </motion.div>

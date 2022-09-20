@@ -234,10 +234,11 @@ $darkgrey: #626A79;
                 .checkout-button {
                     position: absolute;
                     right: 1rem;
-                    width: 7rem;
+                    width: 8rem;
                     height: 3rem;
-                    background-color: $blue;
+                    background-color: #8CD2DB;
                     color: white;
+                    background-size: 200%;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -363,6 +364,7 @@ $darkgrey: #626A79;
 }
 
 .checkout-button:hover {
-    background-color: #2E838E !important;
-    border-radius: 1rem;
+    background-color: #5DD0DF !important;
 }
+
+
