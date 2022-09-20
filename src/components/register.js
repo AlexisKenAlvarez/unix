@@ -116,6 +116,7 @@ const Register = () => {
 
     useEffect(() => {
       return () => {
+        console.log("unmount")
         dispatch(setErr({msg: ''}))
         dispatch(updateRegister({email: '', password: ''}))
 
