@@ -21,7 +21,7 @@ import Done from '../components/done'
 
 // SLICES
 import { toggleActive } from '../features/navSlice.js'
-import { updateRegister } from "../features/registerSlice";
+import { setEmail, setPassword } from "../features/registerSlice";
 import { setErr } from '../features/errSlice'
 
 const Register = () => {
@@ -29,7 +29,9 @@ const Register = () => {
     Axios.defaults.withCredentials = true;
 
     const dispatch = useDispatch();
-    const updateReg = useSelector((state) => state.updateRegister.value);
+    const regEmail = useSelector((state) => state.updateRegister.email);
+    const regPassword = useSelector((state) => state.updateRegister.password);
+
     const err = useSelector((state) => state.errSlice.value);
 
 
@@ -45,9 +47,8 @@ const Register = () => {
 
       return () => {
         dispatch(setErr({msg: ''}))
-        dispatch(updateRegister({email: '', password: ''}))
-
-
+        dispatch(setEmail({value: ''}))
+        dispatch(setPassword({value: ''}))
         dispatch(toggleActive({isActive: true}))
 
       }
@@ -72,11 +73,11 @@ const Register = () => {
 
     const handleNext = () => {
         if (page === 1) {
-            if (!isValid(updateReg.email)) {
+            if (!isValid(regEmail.value)) {
                 dispatch(setErr({msg: 'Invalid Email!'}))
 
             } else {
-                Axios.post("https://unix.herokuapp.com/checkEmail", {email: updateReg.email}).then((response) => {
+                Axios.post("https://unix.herokuapp.com/checkEmail", {email: regEmail.value}).then((response) => {
                     if (response.data.valid === false) {
                         dispatch(setErr({msg: 'This email is already in use.'}))
                         console.log(response.data)
@@ -92,24 +93,23 @@ const Register = () => {
 
             }
         } else if (page === 2) {
-            let hasSpace = patternValidation(updateReg.password)
-            if (updateReg.password === '') {
+            let hasSpace = patternValidation(regPassword.value)
+            if (regPassword.value === '') {
                 dispatch(setErr({msg: 'Password cannot be empty!'}))
-            } else if (updateReg.password <= 3) {
+            } else if (regPassword.value <= 3) {
                 dispatch(setErr({msg: 'Password is too weak!'}))
 
             } else if (hasSpace) {
                 dispatch(setErr({msg: 'Empty spaces are not allowed.'}))
 
             } else {
-                console.log(updateReg.password)
                 setPage((current) => current + 1)
                 dispatch(setErr({msg: ''}))
             }
         } else if (page === 3) {
             console.log("in 3")
-            const userEmail = updateReg.email
-            const userPassword = updateReg.password
+            const userEmail = regEmail.value
+            const userPassword = regPassword.value
 
             if (enabled) {
                 setEnabled(false)

@@ -27,10 +27,9 @@ const Form = () => {
 
     const [err, setErr] = useState('')
     const loginData = useSelector((state) => state.loginSlice.value)
-    const toggleNav = useSelector((state) => state.toggleNav.value)
     const dispatch = useDispatch()
   
-    
+
 
     const handleSubmit = (e) => {
         e.preventDefault();

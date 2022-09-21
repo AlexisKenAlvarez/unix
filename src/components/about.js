@@ -22,7 +22,6 @@ const About = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(toggleActive({isActive: true}))
 
         Axios.get("https://unix.herokuapp.com/login").then((response) => {
             if (response.data?.user) {

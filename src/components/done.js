@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { updateRegister } from "../features/registerSlice";
 
 const Done = () => {
 
-    const updateReg = useSelector((state) => state.updateRegister.value)
-    const password = updateReg.password
-    const email = updateReg.email
+    const regEmail = useSelector((state) => state.updateRegister.email)
+    const regPassword = useSelector((state) => state.updateRegister.password)
+
+    const password = regPassword.value
+    const email = regEmail.value
     
     const [shown, setShown] = useState(false);
 
