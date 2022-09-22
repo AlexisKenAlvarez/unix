@@ -49,6 +49,7 @@ const Hero = () => {
     Axios.defaults.withCredentials = true;
 
 
+
     const handleNext = () => {
         if (slide.page >= 3) {
             dispatch(nextSlide({ page: 1}))
