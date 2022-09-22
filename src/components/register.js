@@ -74,7 +74,7 @@ const Register = () => {
     
     const handleNext = () => {
 
-        if (page === 1) {
+        if (page === 1 && debounce === false) {
             if (!isValid(regEmail.value)) {
                 dispatch(setErr({msg: 'Invalid Email!'}))
 
@@ -89,6 +89,8 @@ const Register = () => {
                         setPage((current) => current + 1)
                         dispatch(setErr({msg: ''}))
                         setDebounce(true)
+                        console.log(debounce)
+
                     }
                     
                 })
