@@ -79,7 +79,7 @@ const Register = () => {
                 dispatch(setErr({msg: 'Invalid Email!'}))
 
             } else {
-                Axios.post("http://localhost:3001/checkEmail", {email: regEmail.value}).then((response) => {
+                Axios.post("https://unix.herokuapp.com/checkEmail", {email: regEmail.value}).then((response) => {
                     if (response.data.valid === false) {
                         dispatch(setErr({msg: 'This email is already in use.'}))
                         console.log(response.data)
