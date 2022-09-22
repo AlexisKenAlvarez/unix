@@ -39,6 +39,7 @@ const Register = () => {
     const [page, setPage] = useState(1);
     const [regDone, setReg] = useState(false)
     const [enabled, setEnabled] = useState(true)
+    const [debounce, setDebounce] = useState(false)
 
     const navigate = useNavigate()
 
@@ -70,14 +71,15 @@ const Register = () => {
     const patternValidation = val => {
         return /\s/g.test(val);
       };
-
+    
     const handleNext = () => {
+
         if (page === 1) {
             if (!isValid(regEmail.value)) {
                 dispatch(setErr({msg: 'Invalid Email!'}))
 
             } else {
-                Axios.post("https://unix.herokuapp.com/checkEmail", {email: regEmail.value}).then((response) => {
+                Axios.post("http://localhost:3001/checkEmail", {email: regEmail.value}).then((response) => {
                     if (response.data.valid === false) {
                         dispatch(setErr({msg: 'This email is already in use.'}))
                         console.log(response.data)
@@ -86,13 +88,13 @@ const Register = () => {
                         console.log(response.data)
                         setPage((current) => current + 1)
                         dispatch(setErr({msg: ''}))
-
+                        setDebounce(true)
                     }
                     
                 })
 
             }
-        } else if (page === 2) {
+        } else if (page === 2 && debounce) {
             let hasSpace = patternValidation(regPassword.value)
             if (regPassword.value === '') {
                 dispatch(setErr({msg: 'Password cannot be empty!'}))
@@ -103,6 +105,7 @@ const Register = () => {
                 dispatch(setErr({msg: 'Empty spaces are not allowed.'}))
 
             } else {
+                console.log(regPassword.value)
                 setPage((current) => current + 1)
                 dispatch(setErr({msg: ''}))
             }
@@ -154,6 +157,15 @@ const Register = () => {
         </>
     )
 
+    const handleBack = () => {
+        
+        if (page === 1) {
+            navigate("/", {replace: true})
+        } else {
+            setPage((current) => current - 1)
+        }
+    }
+
 
     return (
         <>
@@ -173,7 +185,7 @@ const Register = () => {
                     <div className='register-hero'>
                         <h1 className='existing poppins'><span>Register</span> TO YOUR EXISTING ACCOUNT</h1>
                         <div className='register-box'>
-                            <div className='arrow-container' onClick={handleHome}>
+                            <div className='arrow-container' onClick={handleBack}>
                                 <img className='arrow-back' src={Back} alt={Back}></img>
                                 <p className='register-back primary'>Back</p>
                             </div>
