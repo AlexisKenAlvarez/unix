@@ -75,6 +75,7 @@ const Register = () => {
     const handleNext = () => {
 
         if (page === 1 && debounce === false) {
+            setDebounce(true)
             if (!isValid(regEmail.value)) {
                 dispatch(setErr({msg: 'Invalid Email!'}))
 
@@ -88,15 +89,12 @@ const Register = () => {
                         console.log(response.data)
                         setPage((current) => current + 1)
                         dispatch(setErr({msg: ''}))
-                        setDebounce(true)
-                        console.log(debounce)
-
                     }
                     
                 })
 
             }
-        } else if (page === 2 && debounce) {
+        } else if (page === 2) {
             console.log(debounce)
             let hasSpace = patternValidation(regPassword.value)
             if (regPassword.value === '') {
