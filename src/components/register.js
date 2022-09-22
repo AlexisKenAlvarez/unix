@@ -95,6 +95,7 @@ const Register = () => {
 
             }
         } else if (page === 2 && debounce) {
+            console.log(debounce)
             let hasSpace = patternValidation(regPassword.value)
             if (regPassword.value === '') {
                 dispatch(setErr({msg: 'Password cannot be empty!'}))
