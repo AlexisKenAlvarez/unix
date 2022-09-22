@@ -48,7 +48,6 @@ const Form = () => {
         emailref.current.focus();
 
         return () => {
-            console.log("nav active")
             dispatch(toggleActive({isActive: true}))
         }
     }, [])

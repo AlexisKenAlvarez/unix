@@ -83,10 +83,8 @@ const Register = () => {
                 Axios.post("https://unix.herokuapp.com/checkEmail", {email: regEmail.value}).then((response) => {
                     if (response.data.valid === false) {
                         dispatch(setErr({msg: 'This email is already in use.'}))
-                        console.log(response.data)
 
                     } else {
-                        console.log(response.data)
                         setPage((current) => current + 1)
                         dispatch(setErr({msg: ''}))
                     }
@@ -95,7 +93,6 @@ const Register = () => {
 
             }
         } else if (page === 2) {
-            console.log(debounce)
             let hasSpace = patternValidation(regPassword.value)
             if (regPassword.value === '') {
                 dispatch(setErr({msg: 'Password cannot be empty!'}))
@@ -106,12 +103,10 @@ const Register = () => {
                 dispatch(setErr({msg: 'Empty spaces are not allowed.'}))
 
             } else {
-                console.log(regPassword.value)
                 setPage((current) => current + 1)
                 dispatch(setErr({msg: ''}))
             }
         } else if (page === 3) {
-            console.log("in 3")
             const userEmail = regEmail.value
             const userPassword = regPassword.value
 
