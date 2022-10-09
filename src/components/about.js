@@ -102,7 +102,7 @@ const About = () => {
                 <div className='about-container'>
                     <div className='about-image-container'>
                         <motion.div variants={portraitVariants} initial="initial1" animate={onHover ? "hover1" : "animate1"} className='abt-img-line1'></motion.div>
-                        <img onMouseEnter={handleOnHover} onMouseLeave={handleNotHover} src="https://ik.imagekit.io/efpqj5mis/Unix/ghost_Ro6Xn2UXh.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1664769963970" className='about-image' alt="Developer"></img>
+                        <img onMouseEnter={handleOnHover} onMouseLeave={handleNotHover} src="https://ik.imagekit.io/efpqj5mis/Unix/meAbout_1GKpdGl5n.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1664769964150" className='about-image' alt="Developer"></img>
                         <motion.div variants={portraitVariants} initial="initial2"animate={onHover ? "hover2" : "animate2"} className='abt-img-line2'></motion.div>
                     </div>
 
