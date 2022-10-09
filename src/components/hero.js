@@ -10,23 +10,12 @@ import { setStatus } from '../features/statusSlice'
 import { getItems } from '../features/productSlice'
 import { handleCart } from '../features/cartSlice'
 
-
-
 import '../style/hero.scss'
-
-// IMAGES
-// import image1 from '../images/hero.webp';
-// import image2 from '../images/page2.webp';
-// import image3 from '../images/page3.webp';
-// import Box from '../images/newproducts/box.webp'
-// import deal1 from '../images/me.webp';
-// import deal2 from '../images/joy.webp';
 import Cart from '../images/animation_300_l7nbf08m.gif'
 
 // COMPONENTS
 import ScrollToTop from '../ScrollToTop';
 import Axios from 'axios';
-import { Navigate } from 'react-router-dom';
 import Loader from './loader';
 
 const Hero = () => {
@@ -199,7 +188,7 @@ const Hero = () => {
 
                                         <div className='hero-button'>EXPLORE</div>
                                     </div>
-                                    <img className='hero-image' src="https://unix-shop.s3.ap-southeast-1.amazonaws.com/hero.webp" alt="Model"></img>
+                                    <img className='hero-image' src="https://ik.imagekit.io/efpqj5mis/Unix/page1_HUUpHp6dA.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1664769963919" alt="Model"></img>
     
                                 </div>
 
@@ -210,7 +199,7 @@ const Hero = () => {
 
                                         <div className='page2-button'>EXPLORE</div>
                                     </div>
-                                    <img className='page2-image' src="https://unix-shop.s3.ap-southeast-1.amazonaws.com/page2.webp" alt="Model"></img>
+                                    <img className='page2-image' src="https://ik.imagekit.io/efpqj5mis/Unix/page2_esOl8rJ26n.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1664769964058" alt="Model"></img>
                                 </div>
 
                                 <div className='page3-container car-child'>
@@ -220,7 +209,7 @@ const Hero = () => {
 
                                         <div className='page3-button'>EXPLORE</div>
                                     </div>
-                                    <img className='page3-image' src="https://unix-shop.s3.ap-southeast-1.amazonaws.com/page3.webp" alt="Model"></img>
+                                    <img className='page3-image' src="https://ik.imagekit.io/efpqj5mis/Unix/page3_jEEmRWWV3S.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1664769964047" alt="Model"></img>
                                 </div>
                             </div>
                         </div>
@@ -237,7 +226,7 @@ const Hero = () => {
 
                     <section className='deals-container'>
                         <div className='deal1 deals'>
-                            <img src="https://unix-shop.s3.ap-southeast-1.amazonaws.com/joy.webp" className="deal1-image deal-image" alt="Deals"></img>
+                            <img src="https://ik.imagekit.io/efpqj5mis/Unix/joyitems_n3JsEx1WsJ.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1664769964027" className="deal1-image deal-image" alt="Deals"></img>
                             <div className='tag1 tags'>
                                 HOT DEALS
                             </div>
@@ -248,7 +237,7 @@ const Hero = () => {
                             
                         </div>
                         <div className='deal2 deals'>
-                            <img src="https://unix-shop.s3.ap-southeast-1.amazonaws.com/me.webp" className="deal2-image deal-image"  alt="Deals"></img>
+                            <img src="https://ik.imagekit.io/efpqj5mis/Unix/meitems_zwl0Dsx9I.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1664769963890" className="deal2-image deal-image"  alt="Deals"></img>
                             <div className='tag2 tags'>
                                 HOT DEALS
                             </div>

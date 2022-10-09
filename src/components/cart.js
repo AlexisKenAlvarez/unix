@@ -2,12 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { AnimatePresence } from 'framer-motion'
 import Axios from 'axios'
-
 import '../style/cart.scss'
 
 // COMPONENTS
 import Delete from './delete'
-
 
 // IMAGES 
 import Minus from '../images/cart/minus.svg'
@@ -19,7 +17,6 @@ import { setStatus } from '../features/statusSlice'
 import { handleCart, setTotal, setChecked, setAmount, setCheckOut, toDelete, deleteName } from '../features/cartSlice'
 import { toggleVisible, showAnimate } from '../features/deleteSlice'
 
-
 const Cart = () => {
   const dispatch = useDispatch();
   const deleteStatus = useSelector((state) => state.del.value)
@@ -27,17 +24,12 @@ const Cart = () => {
   const checkOutProduct = useSelector((state) => state.cartSlice.checkOut)
   const isChecked = useSelector((state) => state.cartSlice.checked)
 
-
   const products = useSelector((state) => state.prodSlice.value)
-
   const [checkedAll, setCheckedAll] = useState(false)
   const [loading, setLoading] = useState(false)
-
   const [prodName, setProdName] = useState(null);
-
   const [allSelected, setAllSelected] = useState(false)
   const [inputCheck, setInputCheck] = useState(null)
-
 
   Axios.defaults.withCredentials = true
 
@@ -126,7 +118,6 @@ const Cart = () => {
     const productName = e.currentTarget.parentNode.getAttribute("data-key");
     setLoading(true)
     setProdName(productName)
-
     Axios.post("https://unix.herokuapp.com/handleQuantity", {action: action, productName: productName}).then((response) => {
 
       if (action === "add") {
@@ -141,9 +132,7 @@ const Cart = () => {
           if (isChecked.value > 0) {
             dispatch(setTotal({value: totalPrice.value - response.data.price})) // MINUS VALUE FROM THE TOTAL
           }
-          
         }
-        
       }
 
       // RE RENDER PRODUCTS

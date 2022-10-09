@@ -180,8 +180,8 @@ const Register = () => {
                 </nav>
                 
                 <div className='register-hero-outer'>
-                    <img className='element1 elements-register' src="https://unix-shop.s3.ap-southeast-1.amazonaws.com/element.webp" alt="Element"></img>
-                    <img className='element2 elements-register' src="https://unix-shop.s3.ap-southeast-1.amazonaws.com/element.webp" alt="Element"></img>
+                    <img className='element1 elements-register' src="https://ik.imagekit.io/efpqj5mis/Unix/element_tfJTOt7CJ.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1665283703731" alt="Element"></img>
+                    <img className='element2 elements-register' src="https://ik.imagekit.io/efpqj5mis/Unix/element_tfJTOt7CJ.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1665283703731" alt="Element"></img>
                     
                     <div className='register-hero'>
                         <h1 className='existing poppins'><span>Register</span> TO YOUR EXISTING ACCOUNT</h1>

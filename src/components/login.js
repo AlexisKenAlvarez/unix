@@ -106,13 +106,13 @@ const Form = () => {
             initial={{width: 0}} animate={{width: "100%"}} exit={{x: window.innerWidth}} transition={{delay: 0.2}}>
                 <nav className='login-nav'>
                     <div className='nav-inner'>
-                        <img src="https://unix-shop.s3.ap-southeast-1.amazonaws.com/login-logo.png" className='login-nav-logo' alt="Logo" onClick={handleHome}></img>
+                        <img src="https://ik.imagekit.io/efpqj5mis/Unix/unixlogo_afXD8zUuHS.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1664769964095" className='login-nav-logo' alt="Logo" onClick={handleHome}></img>
                     </div>
                 </nav>
                 
                 <div className='login-hero-outer'>
-                    <img className='element1 elements-login' src="https://unix-shop.s3.ap-southeast-1.amazonaws.com/element.webp" alt="Element"></img>
-                    <img className='element2 elements-login' src="https://unix-shop.s3.ap-southeast-1.amazonaws.com/element.webp" alt="Element"></img>
+                    <img className='element1 elements-login' src="https://ik.imagekit.io/efpqj5mis/Unix/element_tfJTOt7CJ.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1665283703731" alt="Element"></img>
+                    <img className='element2 elements-login' src="https://ik.imagekit.io/efpqj5mis/Unix/element_tfJTOt7CJ.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1665283703731" alt="Element"></img>
                     
                     <div className='login-hero'>
                         <h1 className='existing poppins'><span>LOGIN</span> TO YOUR EXISTING ACCOUNT</h1>

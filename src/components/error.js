@@ -61,7 +61,7 @@ const Error = () => {
                         <motion.img 
                         initial={{opacity: 0}} 
                         animate={animation}
-                        src="https://unix-shop.s3.ap-southeast-1.amazonaws.com/ghost.webp" alt="Ghost" className='error-image'></motion.img>
+                        src="https://ik.imagekit.io/efpqj5mis/Unix/ghost_Ro6Xn2UXh.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1664769963970" alt="Ghost" className='error-image'></motion.img>
                     </AnimatePresence>
                     
 
