@@ -34,7 +34,6 @@ const Register = () => {
 
     const err = useSelector((state) => state.errSlice.value);
 
-
     // STATES
     const [page, setPage] = useState(1);
     const [regDone, setReg] = useState(false)

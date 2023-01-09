@@ -59,7 +59,7 @@ const Hero = () => {
         dispatch(handleCart({onCart: false}))
 
         // TO SET LOGGEDIN STATUS
-        Axios.get("https://unix.herokuapp.com/login").then((response) => {
+        Axios.get(`${process.env.REACT_APP_DBURL}login`).then((response) => {
         if (response.data.loggedIn === true) {
             const userEmail = response.data.user[0].email
             dispatch(setStatus({status: true}))
@@ -70,7 +70,7 @@ const Hero = () => {
         }   
         })
 
-        Axios.get("https://unix.herokuapp.com/getproducts").then((response) => {
+        Axios.get(`${process.env.REACT_APP_DBURL}getproducts`).then((response) => {
             setProducts(response.data.Products)
             setLoader(false)
         })
@@ -81,7 +81,7 @@ const Hero = () => {
     const addCart = (event) => {
         const itemName = event.currentTarget.id
 
-        Axios.post("https://unix.herokuapp.com/addtocart", {product: itemName}).then((response) => {
+        Axios.post(`${process.env.REACT_APP_DBURL}addtocart`, {product: itemName}).then((response) => {
             console.log("3")
                 if (response.data.loggedIn === false) {
                     navigate("/login", {replace: true})
