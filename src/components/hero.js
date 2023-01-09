@@ -100,7 +100,7 @@ const Hero = () => {
     }
 
     const renderCart = (email) => {
-        Axios.post('https://unix.herokuapp.com/products').then((response) => {
+        Axios.post(`${process.env.REACT_APP_DBURL}products`).then((response) => {
             const items = response.data.items
 
             dispatch(getItems({items: items}))

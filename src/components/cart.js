@@ -45,7 +45,7 @@ const Cart = () => {
     }
 
     // GET PRODUCTS AND STORE IT TO PRODUCTS SLICE
-    Axios.post("https://unix.herokuapp.com/products").then((response) => {
+    Axios.post(`${process.env.REACT_APP_DBURL}products`).then((response) => {
       dispatch(getItems({items: response.data.items}))
       
     })
@@ -118,7 +118,7 @@ const Cart = () => {
     const productName = e.currentTarget.parentNode.getAttribute("data-key");
     setLoading(true)
     setProdName(productName)
-    Axios.post("https://unix.herokuapp.com/handleQuantity", {action: action, productName: productName}).then((response) => {
+    Axios.post(`${process.env.REACT_APP_DBURL}handleQuantity`, {action: action, productName: productName}).then((response) => {
 
       if (action === "add") {
         if (isChecked.value > 0) {
@@ -137,7 +137,7 @@ const Cart = () => {
 
       // RE RENDER PRODUCTS
           // GET PRODUCTS AND STORE IT TO PRODUCTS SLICE
-          Axios.post("https://unix.herokuapp.com/products").then((response) => {
+          Axios.post(`${process.env.REACT_APP_DBURL}products`).then((response) => {
             dispatch(getItems({items: response.data.items}))
             setLoading(false)
     

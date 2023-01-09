@@ -68,12 +68,12 @@ function App() {
       dispatch(handleCart({onCart: false}))
     }
 
-    Axios.get("https://unix.herokuapp.com/login").then((response) => {
+    Axios.get(`${process.env.REACT_APP_DBURL}login`).then((response) => {
       if (response.data?.user) {
         const clientEmail = response.data.user[0].email
         setLoggedIn(true)
 
-        Axios.post('https://unix.herokuapp.com/products', {email: clientEmail}).then((response) => {
+        Axios.post(`${process.env.REACT_APP_DBURL}products`, {email: clientEmail}).then((response) => {
           const items = response.data.items
           let itemList = []
     
@@ -106,7 +106,7 @@ function App() {
     const id = e.currentTarget.id
     if (user.status) {
 
-      Axios.post("https://unix.herokuapp.com/logout").then((response) => {
+      Axios.post(`${process.env.REACT_APP_DBURL}logout`).then((response) => {
 
       if(response.data.out) {
         dispatch(setStatus({status: false}))

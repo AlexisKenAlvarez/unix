@@ -14,7 +14,7 @@ const PrivateCart = () => {
     Axios.defaults.withCredentials = true
     
     useEffect(() => {
-        Axios.get("https://unix.herokuapp.com/login").then((response) => {
+        Axios.get(`${process.env.REACT_APP_DBURL}login`).then((response) => {
             if (response.data.loggedIn === true) {
               setLogin(true)
             } else {
